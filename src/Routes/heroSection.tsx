@@ -14,7 +14,7 @@ const heroSection = ()=>{
 
           {/* Text Content */}
           <div className="relative">
-            <p className="text-red-500 font-medium mb-4">We Are Here</p>
+            <p className="text-red-500 font-medium mb-4">\ We Are Here \</p>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Better Insights For Business Growth
             </h1>

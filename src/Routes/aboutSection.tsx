@@ -8,7 +8,7 @@ const aboutSection = ()=>{
           {/* Text Content */}
           <div className="space-y-6">
             <div className="text-blue-600 font-medium uppercase tracking-wide">
-              About us
+              \ About us \
             </div>
             <h1 className="text-[42px] font-bold text-[#1A2B5F] leading-tight">
               One of the Fastest Way to Business Growth
