@@ -18,7 +18,7 @@ const productSection = ()=>{
       <div className="space-y-6">
         {/* Section Marker */}
         <div className="text-blue-600 font-medium uppercase tracking-wide">
-          \ What We Do \
+          What We Do
         </div>
 
         {/* Main Headline */}
