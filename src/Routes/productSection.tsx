@@ -1,10 +1,10 @@
-import React from "react";
-import ProductImage from './Images/productImage.png';
+
+import ProductImage from '../Images/productImage.png';
 
 const productSection = ()=>{
   return(
 
-    <div className="container mt-0 mx-auto px-4 py-8 grid md:grid-cols-2 gap-12 items-center min-h-screen">
+    <div className="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-12 items-center min-h-screen">
       {/* Left Side - Image */}
       <div className="relative">
         <img 
@@ -28,14 +28,14 @@ const productSection = ()=>{
 
         {/* Description */}
         <p className="text-[#6B7280] text-base leading-relaxed">
-          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
+          We deliver cutting-edge digital solutions that drive growth and enhance user experiences. From web development and app creation to UI/UX design, SEO, and email marketing, our team provides end-to-end services tailored to your business needs. With a focus on innovation, performance, and results, we help you build a strong online presence and achieve your business goals.
         </p>
 
         {/* Vision and Goal Cards */}
         <div className="grid grid-cols-2 gap-4">
           {/* Our Vision Card */}
           <div className="bg-white border border-gray-100 rounded-lg p-4 shadow-sm flex items-center space-x-4">
-            <div className="bg-[#FF4B4B] text-white p-3 rounded-full">
+            <div className="bg-blue-900 text-white p-3 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.036 9.688a9 9 0 11-9.546-9.697" />
               </svg>
@@ -48,7 +48,7 @@ const productSection = ()=>{
 
           {/* Our Goal Card */}
           <div className="bg-white border border-gray-100 rounded-lg p-4 shadow-sm flex items-center space-x-4">
-            <div className="bg-[#FF4B4B] text-white p-3 rounded-full">
+            <div className="bg-blue-900 text-white p-3 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
               </svg>

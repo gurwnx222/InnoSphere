@@ -11,7 +11,7 @@ const serviceSection = ()=>{
         </svg>
       ),
       title: 'Web Design / Development',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout'
+      description: 'Transform your digital presence with our expert web development services. We build responsive, user-friendly websites tailored to your business needs. Whether you’re looking for a dynamic e-commerce platform or a sleek corporate site'
     },
     {
       icon: (
@@ -20,7 +20,7 @@ const serviceSection = ()=>{
         </svg>
       ),
       title: 'UI/UX Design',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout'
+      description: 'Elevate your user experience with our intuitive UI/UX design services. We craft visually stunning interfaces that are not only aesthetically pleasing but also function seamlessly for your users. By focusing on user-centric design.'
     },
     {
       icon: (
@@ -29,7 +29,7 @@ const serviceSection = ()=>{
         </svg>
       ),
       title: 'Website Migration',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout'
+      description: 'Seamlessly move your website to a new platform with our professional migration services. We ensure a smooth transition with minimal downtime, preserving your site’s SEO rankings, data integrity, and user experience. Whether you'
     },
     {
       icon: (
@@ -38,7 +38,7 @@ const serviceSection = ()=>{
         </svg>
       ),
       title: 'App Development',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout'
+      description: 'Turn your ideas into powerful mobile experiences with our expert app development services. We create custom, user-friendly apps for both iOS and Android platforms.'
     },
     {
       icon: (
@@ -47,7 +47,7 @@ const serviceSection = ()=>{
         </svg>
       ),
       title: 'HubSpot Integration',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout'
+      description: 'Effortlessly transition to HubSpot with our expert migration services. We ensure a smooth, secure transfer of your CRM, marketing, and sales data, minimizing downtime and preserving valuable insights. '
     },
     {
       icon: (
@@ -56,7 +56,7 @@ const serviceSection = ()=>{
         </svg>
       ),
       title: 'Email Marketing',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout'
+      description: 'Boost engagement and drive conversions with our tailored email marketing services. We craft personalized, compelling email campaigns that speak directly to your audience, optimizing open rates, click-through rates, and customer loyalty. '
     }
   ];
 
@@ -65,8 +65,8 @@ const serviceSection = ()=>{
 
     <section className="container mx-auto px-4 py-16">
       <div className="text-center mb-12">
-        <h2 className="text-[32px] font-bold text-[#0E2B5C] mb-4">Our Expertise</h2>
-        <div className="h-1 w-20 bg-[#FF4B4B] mx-auto"></div>
+        <h2 className="text-[32px] font-bold text-[#1A2258] mb-4">Our Expertise</h2>
+        <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
       </div>
 
       <div className="grid md:grid-cols-3 gap-8">
@@ -76,8 +76,8 @@ const serviceSection = ()=>{
             className="text-center p-6 border border-gray-100 rounded-lg hover:shadow-lg transition-all duration-300"
           >
             <div className="mb-4 flex justify-center">
-              <div className="w-16 h-16 bg-[#FF4B4B] bg-opacity-10 rounded-full flex items-center justify-center">
-                <div className="text-[#FF4B4B]">
+              <div className="w-16 h-16 bg-blue-600  bg-opacity-10 rounded-full flex items-center justify-center">
+                <div className="text-blue-900">
                   {service.icon}
                 </div>
               </div>
@@ -85,7 +85,7 @@ const serviceSection = ()=>{
             <h3 className="text-[20px] font-semibold text-[#0E2B5C] mb-3">
               {service.title}
             </h3>
-            <div className="h-1 w-20 bg-[#FF4B4B] mx-auto mb-4"></div>
+            <div className="h-1 w-20 bg-blue-600  mx-auto mb-4"></div>
             <p className="text-[#6B7280] text-[14px] leading-relaxed">
               {service.description}
             </p>
