@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { SparklesCore } from "@/Components/ui/sparkles";
+import { SparklesCore } from "@/components/ui/sparkles";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { IconDotsVertical } from "@tabler/icons-react";
@@ -236,5 +236,4 @@ export const Compare = ({
     </div>
   );
 };
-
 const MemoizedSparklesCore = React.memo(SparklesCore);
