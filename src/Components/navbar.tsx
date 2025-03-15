@@ -37,8 +37,7 @@ const Navbar = () => {
           <NavLink
             to="/home"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
           >
@@ -47,8 +46,7 @@ const Navbar = () => {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
           >
@@ -57,8 +55,7 @@ const Navbar = () => {
           <NavLink
             to="/product"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
           >
@@ -67,13 +64,23 @@ const Navbar = () => {
           <NavLink
             to="/services"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
           >
             Services
           </NavLink>
+
+          <NavLink
+            to="/portfolio"
+            className={({ isActive }) =>
+              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
+              }`
+            }
+          >
+            Portfolios
+          </NavLink>
+
           {/* Updated NavLink for "Get In Touch" */}
           <NavLink
             to="/contact"
@@ -128,8 +135,7 @@ const Navbar = () => {
           <NavLink
             to="/home"
             className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
-                isActive ? "text-blue-600" : ""
+              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
               }`
             }
             onClick={toggleMenu}
@@ -139,8 +145,7 @@ const Navbar = () => {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
-                isActive ? "text-blue-600" : ""
+              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
               }`
             }
             onClick={toggleMenu}
@@ -150,8 +155,7 @@ const Navbar = () => {
           <NavLink
             to="/product"
             className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
-                isActive ? "text-blue-600" : ""
+              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
               }`
             }
             onClick={toggleMenu}
@@ -161,8 +165,7 @@ const Navbar = () => {
           <NavLink
             to="/services"
             className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
-                isActive ? "text-blue-600" : ""
+              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
               }`
             }
             onClick={toggleMenu}
