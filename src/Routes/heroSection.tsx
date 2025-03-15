@@ -78,16 +78,20 @@ const HeroSection = () => {
           </motion.div>
         </div>
         {/* Compare Component */}
-        <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100  border-neutral-200 dark:border-neutral-800 px-4">
-      <Compare
-        firstImage="https://assets.aceternity.com/code-problem.png"
-        secondImage="https://assets.aceternity.com/code-solution.png"
-        firstImageClassName="object-cover object-left-top"
-        secondImageClassname="object-cover object-left-top"
-        className="h-[250px] w-[200px] md:h-[500px] md:w-[500px]"
-        slideMode="hover"
-      />
-    </div>
+        <div className="flex justify-center w-full mt-12">
+          <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
+            <Compare
+              firstImage="/src/Images/image.png"
+              secondImage="/src/Images/aboutImage.png"
+              firstImageClassName="object-cover"
+              secondImageClassname="object-cover"
+              className="h-[250px] w-[300px] md:h-[400px] md:w-[600px]"
+              slideMode="hover"
+              showHandlebar={true}
+              autoplay={false}
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
