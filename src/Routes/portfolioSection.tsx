@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 
+
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('ALL');
 
-  const categories = ['ALL', 'LIFE', 'MOMENTS', 'NATURE', 'STORIES', 'TRAVEL'];
+  const categories = ['ALL', 'Designs Project','Development Projects','Editing Projects',];
 
   const portfolioItems = [
     {
       id: 1,
-      image: "/api/placeholder/400/320",
+      image: "'../Images/Screenshot (24).png'",
       category: 'LIFE',
       title: 'Collaborative Design Website',
       description: 'Website featuring "Nothing great is made alone" concept'

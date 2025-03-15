@@ -7,6 +7,7 @@ import Services from "./Routes/serviceSection";
 import Process from "./Routes/processSection";
 import Contact from "./Routes/contactSection";
 import Footer from "./Routes/footerSection";
+import Portfolio from "./Routes/portfolioSection";
 
 import './App.css';
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
          <Route path="/process" element={<Process />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/portfolio" element={<Portfolio />} />
 
          <Route path="/footer" element={<Footer />} />
       </Routes>

@@ -25,9 +25,11 @@
     "framer-motion": "^12.5.0",
     "motion": "^12.5.0",
     "react": "^18.0.0",
+    "react-compare-slider": "^3.1.0",
     "react-dom": "^18.0.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.2.0",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^4.6.3",
     "typescript-language-server": "^0.9.7",
     "vite": "^2.9.5"
