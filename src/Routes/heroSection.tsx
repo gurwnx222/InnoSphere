@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import image from "../Images/image.png";
+import aboutImage from "../Images/aboutImage.png";
 import { Compare } from "@/components/ui/compare";
 
 const HeroSection = () => {
@@ -81,8 +82,8 @@ const HeroSection = () => {
         <div className="flex justify-center w-full mt-12">
           <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
             <Compare
-              firstImage="/src/Images/image.png"
-              secondImage="/src/Images/aboutImage.png"
+              firstImage={image}
+              secondImage={aboutImage}
               firstImageClassName="object-cover"
               secondImageClassname="object-cover"
               className="h-[250px] w-[300px] md:h-[400px] md:w-[600px]"
