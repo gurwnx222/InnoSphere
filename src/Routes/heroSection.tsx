@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import image from "../Images/image.png";
-import { Compare } from "@/Components/ui/compare";
+import { Compare } from "@/components/ui/compare";
 
 const HeroSection = () => {
   useEffect(() => {
