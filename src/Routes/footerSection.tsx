@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Footer = () => {
   return (
     <footer className="bg-[#1A2258] py-12 px-4 text-white">
@@ -8,15 +6,10 @@ const Footer = () => {
           {/* Logo and About section */}
           <div>
             <div className="flex items-center mb-4">
-              <div className="bg-red-500 text-white rounded-full p-2 mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
               <span className="text-xl font-medium">InnoSphere</span>
             </div>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+              We are a company which helps organisations to create a better impact in their industries through sheer focus, optimised solutions which aligned to the Purpose of the Organisation.
             </p>
             <div className="flex space-x-2">
               <a href="#" className="bg-white p-2 rounded-md">
@@ -52,8 +45,6 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white">Web Design/Development</a></li>
               <li><a href="#" className="hover:text-white">App Development</a></li>
               <li><a href="#" className="hover:text-white">UI/UX Design</a></li>
-              <li><a href="#" className="hover:text-white">HubSpot Integration</a></li>
-              <li><a href="#" className="hover:text-white">Email Marketing</a></li>
             </ul>
           </div>
         </div>

@@ -23,10 +23,10 @@ const ContactForm = () => {
 
     try {
       const response = await emailjs.send(
-        "service_qju1vzh", // Service ID
-        "template_hnr8qan", // Template ID
+        "service_cea126q", // Service ID
+        "template_p8aurhv", // Template ID
         formData,
-        "yyFfqbtgF63-6HyK2" // Public Key
+        "BbmX4lHJE2FLAx3yq" // Public Key
       );
 
       console.log("Email sent successfully:", response);
@@ -126,7 +126,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h3 className="text-blue-600  text-xl font-bold mb-1">Send Email</h3>
-                  <p className="text-gray-700">pixelon.digital25@gmail.com</p>
+                  <p className="text-gray-700">innosphere84@gmail.com</p>
                 </div>
               </div>
             </div>

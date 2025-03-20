@@ -19,7 +19,7 @@ const Navbar = () => {
             src={logo}
              />
           </div>
-          <span className="ml-2 text-2xl font-bold text-[#1A2B5F]">InnovaSphere</span>
+          <span className="ml-2 text-2xl font-bold text-[#1A2B5F]">InnoSphere</span>
         </div>
 
         {/* Desktop Navigation */}
