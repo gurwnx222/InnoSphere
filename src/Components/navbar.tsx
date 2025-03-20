@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import logo from "../Images/logo.png"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,27 +10,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="container mx-auto px-6 py-4 bg-white shadow-md relative z-20">
+    <nav className="container mx-auto px-6 py-6 bg-white shadow-md relative z-20">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <div className="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              />
-            </svg>
+          <img
+            src={logo}
+             />
           </div>
-          <span className="ml-2 text-2xl font-bold text-gray-800">Pixelon</span>
+          <span className="ml-2 text-2xl font-bold text-[#1A2B5F]">InnovaSphere</span>
         </div>
 
         {/* Desktop Navigation */}
@@ -85,7 +75,7 @@ const Navbar = () => {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md font-medium transition-colors duration-300 transform hover:scale-105`
+              `bg-blue-500 hover:bg-blue-900 text-white px-6 py-2 rounded-md font-medium transition-colors duration-300 transform hover:scale-105`
             }
           >
             Get In Touch
@@ -172,6 +162,17 @@ const Navbar = () => {
           >
             Services
           </NavLink>
+
+          <NavLink
+            to="/portfolio"
+            className={({ isActive }) =>
+              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
+              }`
+            }
+          >
+            Portfolios
+          </NavLink> 
+          
           {/* Updated NavLink for "Get In Touch" in Mobile */}
           <NavLink
             to="/contact"

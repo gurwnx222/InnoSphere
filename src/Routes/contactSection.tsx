@@ -113,8 +113,8 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h3 className="text-blue-600 text-xl font-bold mb-1">Call Anytime</h3>
-                  <p className="text-gray-700">+91 23678 27867</p>
-                  <p className="text-gray-700">+91 67678 92878</p>
+                  <p className="text-gray-700">+91 98776 48774</p>
+                  <p className="text-gray-700">+91 78891 30942</p>
                 </div>
               </div>
             </div>
@@ -126,22 +126,13 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h3 className="text-blue-600  text-xl font-bold mb-1">Send Email</h3>
-                  <p className="text-gray-700">connect@itfirms.com</p>
-                  <p className="text-gray-700">hello@itfirms.com</p>
+                  <p className="text-gray-700">pixelon.digital25@gmail.com</p>
                 </div>
               </div>
             </div>
 
             <div className="mb-12">
               <div className="flex items-center mb-4">
-                <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                  <FaMapMarkerAlt className="text-white text-2xl" />
-                </div>
-                <div>
-                  <h3 className="text-blue-600 text-xl font-bold mb-1">Visit Us</h3>
-                  <p className="text-gray-700">20 Island Park Road,</p>
-                  <p className="text-gray-700">New Jersey, New York, USA</p>
-                </div>
               </div>
             </div>
 

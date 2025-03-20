@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#101d42] py-12 px-4 text-white">
+    <footer className="bg-[#1A2258] py-12 px-4 text-white">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Logo and About section */}
@@ -13,7 +13,7 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <span className="text-xl font-medium">Pixelon</span>
+              <span className="text-xl font-medium">InnoSphere</span>
             </div>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at
@@ -54,79 +54,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white">UI/UX Design</a></li>
               <li><a href="#" className="hover:text-white">HubSpot Integration</a></li>
               <li><a href="#" className="hover:text-white">Email Marketing</a></li>
-              <li><a href="#" className="hover:text-white">Website Migration</a></li>
             </ul>
-          </div>
-
-          {/* Career section */}
-          <div>
-            <h3 className="text-xl font-semibold mb-5 relative">
-              Career
-              <span className="absolute bottom-0 left-0 w-12 h-1 bg-blue-600 -mb-2"></span>
-            </h3>
-            <div className="space-y-5 mt-8">
-              {/* ReactJs Dev */}
-              <div className="flex items-center space-x-3">
-                <div className="bg-white p-2 rounded-md flex-shrink-0">
-                  <svg viewBox="0 0 24 24" className="h-6 w-6 text-blue-600" fill="currentColor">
-                    <path d="M12 9.861A2.139 2.139 0 1 0 12 14.139 2.139 2.139 0 1 0 12 9.861zM6.008 16.255l-.472-.12v.472h.472v-.352zm0 .472v.471h.472v-.471H6.008zm1.56.471h.472v-.471H7.568v.471zm0-.471v-.352l-.472-.12v.472h.472zm1.56 0h.472v-.352l-.472-.12v.472zm1.56 0h.472v-.352l-.472-.12v.472zm1.56 0h.472v-.352l-.472-.12v.472zM11.9 14.244l-3.94-3.354A5.751 5.751 0 0 1 11.989 2.381a5.754 5.754 0 0 1 5.755 5.75A5.754 5.754 0 0 1 11.9 14.244z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-blue-600 font-medium">ReactJs Dev.</h4>
-                  <p className="text-sm text-gray-300">1-5 Years of Exp.</p>
-                </div>
-              </div>
-
-              {/* WordPress Dev */}
-              <div className="flex items-center space-x-3">
-                <div className="bg-white p-2 rounded-md flex-shrink-0">
-                  <svg viewBox="0 0 24 24" className="h-6 w-6 text-blue-600" fill="currentColor">
-                    <path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-blue-600 font-medium">Wordpress Dev.</h4>
-                  <p className="text-sm text-gray-300">1-5 Years of Exp.</p>
-                </div>
-              </div>
-
-              {/* Python Developer */}
-              <div className="flex items-center space-x-3">
-                <div className="bg-white p-2 rounded-md flex-shrink-0">
-                  <svg viewBox="0 0 24 24" className="h-6 w-6 text-blue-600" fill="currentColor">
-                    <path d="M20.59 12l-3.3-3.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4l3.3-3.3zM3.4 12l3.3 3.3a1 1 0 0 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4A1 1 0 0 1 6.7 8.7L3.4 12zm7.56 8.24a1 1 0 0 1-1.94-.48l4-16a1 1 0 1 1 1.94.48l-4 16z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-blue-600 font-medium">Python Developer</h4>
-                  <p className="text-sm text-gray-300">1-5 Years of Exp.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Subscribe Us section */}
-          <div>
-            <h3 className="text-xl font-semibold mb-5 relative">
-              Subscribe Us
-              <span className="absolute bottom-0 left-0 w-12 h-1 bg-blue-600 -mb-2"></span>
-            </h3>
-            <p className="text-gray-300 mb-6 text-sm leading-relaxed">
-              It is a long established fact that a reader will be distracted by the readable
-            </p>
-            <div className="mt-6">
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Email" 
-                  className="flex-grow p-3 rounded-l-md text-gray-800 focus:outline-none"
-                />
-                <button className="bg-blue-900 hover:bg-red-600 text-white px-6 py-3 rounded-r-md">
-                  Submit
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
