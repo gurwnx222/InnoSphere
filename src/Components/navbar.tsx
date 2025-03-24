@@ -163,12 +163,24 @@ const Navbar = () => {
             Services
           </NavLink>
 
+          {/* <NavLink
+            to="/rating"
+            className={({ isActive }) =>
+              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
+              }`
+            }
+             onClick={toggleMenu}
+          >
+            Rating
+          </NavLink> */}
+
           <NavLink
             to="/portfolio"
             className={({ isActive }) =>
               `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
+             onClick={toggleMenu}
           >
             Portfolios
           </NavLink> 

@@ -46,8 +46,9 @@ const serviceSection = ()=>{
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       ),
-      title: 'HubSpot Integration',
-      description: 'Effortlessly transition to HubSpot with our expert migration services. We ensure a smooth, secure transfer of your CRM, marketing, and sales data, minimizing downtime and preserving valuable insights. '
+      title: 'Social Media marketing',
+      description: "Transform your brand's presence and drive meaningful engagement with our results-driven social media marketing strategies that captivate, convert, and elevate your business."
+      
     },
     {
       icon: (

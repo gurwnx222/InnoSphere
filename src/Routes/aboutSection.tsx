@@ -23,7 +23,7 @@ const aboutSection = ()=>{
               </div>
               <div>
                 <div className="text-[#1A2B5F] font-semibold">Get Instant Professional Advice</div>
-                <div className="text-gray-600">Ready to Help: +1 356 678 7897</div>
+                <div className="text-gray-600">Ready to Help: 7889130942</div>
               </div>
             </div>
           </div>

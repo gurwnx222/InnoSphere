@@ -11,10 +11,12 @@ import threader from '../Projectimages/threader.jpg';
 import gym from '../Projectimages/Screenshot (32).png';
 import cloth from '../Projectimages/Screenshot (33).png';
 // Import leader images
-import Gurwinder from '../Leaderimages/Gurwinder .jpg';
+import Gurwinder from '../Leaderimages/Gurwinder.jpg';
 import gagan from '../Leaderimages/gagan.jpg';
-import sohel from '../Leaderimages/sohel.jpg';
+import sohel from '../Leaderimages/Sohel.webp';
 import Sahil from '../Leaderimages/Sahil.jpg';
+import sameer from '../Leaderimages/Sammer.jpg';
+
 
 
 
@@ -58,6 +60,14 @@ const Portfolio = () => {
       photo: sohel,
       journey: "Im 18 years old and have skills of web development , app development , or UI/UX designer. I develop gauravtechpoint or drive-in website. i have 2 year experience in Web Development",
       profession: "Software Developer"
+    },
+    {
+      id:5,
+      name: "Sameer",
+      // photo: Sohel,
+      photo: sameer,
+      journey: "At just 18, our video editor is already pushing creative boundaries and transforming ideas into stunning visual stories. With a passion for innovation and an eye for detail, he’s on a journey to redefine the art of storytelling—one frame at a time.",
+      profession: "Video Editor"
     }
   ];
 
@@ -97,7 +107,7 @@ const Portfolio = () => {
       description: 'This is Gym website design that designed in dark theme.This design is modern look or eye-catching',
       image: gym,
       buttonText: 'Open',
-      buttonLink: 'https://gauravtechpoint.in/'
+      buttonLink: 'https://www.figma.com/proto/hSlWLGxd0zA4QkOCr3fCB4/Untitled?node-id=0-3'
     },
     {
       id: 5,
@@ -115,7 +125,7 @@ const Portfolio = () => {
       description: 'Drive-in website have features of Knowledge test, License Renew, License apply.',
       image: cloth,
       buttonText: 'Open',
-      buttonLink: 'https://travel-journal-showcase.vercel.app/'
+      buttonLink: 'https://www.figma.com/proto/a8AtYtvHNz9v29mKRa0pcA/10-Web-UI-designs-best?node-id=517-4472&t=yQKj0NHIIFj5QVZw-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1'
     },
 
     {

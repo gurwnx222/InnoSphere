@@ -8,6 +8,8 @@ import Process from "./Routes/processSection";
 import Contact from "./Routes/contactSection";
 import Footer from "./Routes/footerSection";
 import Portfolio from "./Routes/portfolioSection";
+import Testmonial from "./Routes/testmonialSection";
+import Rating from "./Routes/ratingSection";
 
 import './App.css';
 const App = () => {
@@ -21,6 +23,8 @@ const App = () => {
         <Route path="/product" element={<Product />} />
          <Route path="/process" element={<Process />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/testmonial" element={<Testmonial />} />
+         <Route path="/rating" element={<Rating />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/portfolio" element={<Portfolio />} />
 
@@ -32,6 +36,8 @@ const App = () => {
        <Services/>
       <Process/>
       <Product/>
+      <Testmonial />
+      <Rating />
       
       <About />
      
