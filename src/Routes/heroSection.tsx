@@ -30,7 +30,7 @@ const HeroSection = () => {
         <div className="w-full lg:w-1/2 text-center lg:text-left">
           <p className="text-sm md:text-base text-gray-600 mb-2 md:mb-3">Perfect Blend of Technology & Creativity</p>
           <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold text-[#1A2B5F] mb-4 md:mb-6 leading-tight">
-           Your idea to Products <br />
+           Your Ideas to Products <br />
           </h1>
           <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 max-w-md mx-auto lg:mx-0">
             One-Stop Technical Solutions for Web & Mobile Apps For All Your Business Needs
