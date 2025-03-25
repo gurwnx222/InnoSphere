@@ -45,7 +45,7 @@ const TestimonialForm: React.FC<TestimonialFormProps> = ({
     }));
   };
 
-  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await axios.post<Testimonial>(
