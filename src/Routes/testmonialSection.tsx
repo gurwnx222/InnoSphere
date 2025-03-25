@@ -15,7 +15,7 @@ interface Testimonial {
 }
 
 // Backend API base URL
-const API_BASE_URL = "http://0.0.0.0:5000/api";
+const API_BASE_URL = "http://localhost:5000/api";
 
 // Testimonial Form Component
 interface TestimonialFormProps {
