@@ -1,5 +1,6 @@
 run="npm run dev"
 entrypoint="src/App.tsx"
+modules = ["nodejs-20"]
 
 [nix]
 channel = "stable-21_11"
@@ -31,3 +32,18 @@ externalPort = 80
 [[ports]]
 localPort = 3001
 externalPort = 3001
+
+[[ports]]
+localPort = 5000
+
+[workflows]
+runButton = "Frontend"
+
+[[workflows.workflow]]
+name = "Frontend"
+author = 34548253
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
