@@ -1,9 +1,8 @@
-
 import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 import path from 'path';
 
-export default {
+const getConfig = ({ command, mode }) => ({
   server: {
     host: '0.0.0.0',
     hmr: {
@@ -16,8 +15,7 @@ export default {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  build: {
-    sourcemap: false,
-    chunkSizeWarningLimit: 1000,
-  },
-};
+});
+
+export default getConfig;
+
