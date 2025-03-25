@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import sir from "../testominialImages/gaurav.jpeg"
 import taran from "../testominialImages/taran.jpeg"
 
-const StarRating = ({ rating }) => {
+const StarRating = ({ rating, onRatingChange, interactive = false }) => {
   return (
     <div className="flex items-center mb-3">
       {[...Array(5)].map((_, i) => (
@@ -11,7 +12,8 @@ const StarRating = ({ rating }) => {
           xmlns="http://www.w3.org/2000/svg" 
           viewBox="0 0 24 24" 
           fill={i < rating ? "#FFC107" : "#E2E8F0"} 
-          className="h-5 w-5"
+          className={`h-5 w-5 ${interactive ? 'cursor-pointer' : ''}`}
+          onClick={() => interactive && onRatingChange && onRatingChange(i + 1)}
         >
           <path 
             fillRule="evenodd" 
@@ -26,16 +28,16 @@ const StarRating = ({ rating }) => {
 };
 
 const TestimonialsSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const testimonials = [
+  // Hardcoded initial testimonials with a flag to prevent API submission
+  const initialTestimonials = [
     {
       id: 1,
       text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed",
       author: "Gaurav Kumar",
       position: "Founder of Tech Point",
       image: sir,
-      rating: 5
+      rating: 5,
+      isHardcoded: true
     },
     {
       id: 2,
@@ -43,7 +45,8 @@ const TestimonialsSection = () => {
       author: "Amrinder",
       position: "College Student",
       image: "/api/placeholder/60/60",
-      rating: 4
+      rating: 4,
+      isHardcoded: true
     },
     {
       id: 3,
@@ -51,18 +54,77 @@ const TestimonialsSection = () => {
       author: "Chunni Bhai",
       position: "College Student",
       image: taran,
-      rating: 5
+      rating: 5,
+      isHardcoded: true
     }
   ];
 
-  // Auto-scroll functionality
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  //   }, 20000);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [testimonials, setTestimonials] = useState(initialTestimonials);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [newTestimonial, setNewTestimonial] = useState({
+    text: '',
+    author: '',
+    position: '',
+    rating: 5,
+    image: '/api/placeholder/60/60'
+  });
 
-  //   return () => clearInterval(interval);
-  // }, [testimonials.length]);
+  // Fetch testimonials from API
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await axios.get('https://junior-letitia-threader-corp-83dae358.koyeb.app/api/testimonials');
+        // Filter out any previously hardcoded testimonials that might have been in the database
+        const apiTestimonials = response.data.filter(testimonial => !testimonial.isHardcoded);
+
+        // Combine API testimonials with initial hardcoded testimonials
+        setTestimonials([...initialTestimonials, ...apiTestimonials]);
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  // Submit new testimonial
+  const handleSubmitTestimonial = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Ensure no hardcoded data is sent
+      const sanitizedTestimonial = {
+        text: newTestimonial.text,
+        author: newTestimonial.author,
+        position: newTestimonial.position,
+        rating: newTestimonial.rating,
+        image: '/api/placeholder/60/60', // Always use default image
+        isHardcoded: false // Explicitly set to false
+      };
+
+      const response = await axios.post(
+        'https://junior-letitia-threader-corp-83dae358.koyeb.app/api/testimonials', 
+        sanitizedTestimonial
+      );
+
+      // Add the new testimonial to the list and reset form
+      setTestimonials([response.data, ...testimonials.filter(t => !t.isHardcoded)]);
+      setNewTestimonial({
+        text: '',
+        author: '',
+        position: '',
+        rating: 5,
+        image: '/api/placeholder/60/60'
+      });
+    } catch (error) {
+      console.error('Error submitting testimonial:', error);
+      alert('Failed to submit testimonial. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   // Navigation functions
   const goToPrevSlide = () => {
@@ -85,7 +147,8 @@ const TestimonialsSection = () => {
           <h2 className="text-3xl font-bold text-[#1A2B5F]">Testimonials</h2>
         </div>
 
-        <div className="relative">
+        {/* Testimonial Slider */}
+        <div className="relative mb-12">
           {/* Previous arrow */}
           <button 
             onClick={goToPrevSlide}
@@ -115,7 +178,7 @@ const TestimonialsSection = () => {
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
               {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
+                <div key={testimonial._id || testimonial.id} className="w-full flex-shrink-0 px-4">
                   <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
                     {/* Left quote mark */}
                     <div className="text-blue-600 text-6xl font-serif self-start">"</div>
@@ -124,14 +187,14 @@ const TestimonialsSection = () => {
                     <div className="flex flex-col md:flex-row gap-8 items-center flex-grow">
                       <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-blue-100">
                         <img 
-                          src={testimonial.image} 
+                          src={testimonial.image || "/api/placeholder/60/60"} 
                           alt={testimonial.author} 
                           className="w-full h-full object-cover"
                         />
                       </div>
 
                       <div className="flex-grow">
-                        {/* Added Star Rating Component */}
+                        {/* Star Rating Component */}
                         <StarRating rating={testimonial.rating} />
 
                         <p className="text-gray-600 mb-4">{testimonial.text}</p>
@@ -163,6 +226,73 @@ const TestimonialsSection = () => {
               aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
+        </div>
+
+        {/* Add Testimonial Form */}
+        <div className="mt-12 max-w-xl mx-auto">
+          <h3 className="text-2xl font-bold text-center mb-6 text-[#1A2B5F]">Share Your Experience</h3>
+          <form onSubmit={handleSubmitTestimonial} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="author">
+                Your Name
+              </label>
+              <input 
+                id="author"
+                type="text" 
+                value={newTestimonial.author}
+                onChange={(e) => setNewTestimonial({...newTestimonial, author: e.target.value})}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                placeholder="Your Name" 
+                required 
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="position">
+                Your Position/Occupation
+              </label>
+              <input 
+                id="position"
+                type="text" 
+                value={newTestimonial.position}
+                onChange={(e) => setNewTestimonial({...newTestimonial, position: e.target.value})}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                placeholder="Your Position" 
+                required 
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Rating
+              </label>
+              <StarRating 
+                rating={newTestimonial.rating} 
+                onRatingChange={(rating) => setNewTestimonial({...newTestimonial, rating})}
+                interactive={true}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="text">
+                Your Testimonial
+              </label>
+              <textarea 
+                id="text"
+                value={newTestimonial.text}
+                onChange={(e) => setNewTestimonial({...newTestimonial, text: e.target.value})}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32" 
+                placeholder="Share your experience..." 
+                required 
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors"
+              >
+                {isSubmitting ? 'Submitting...' : 'Submit Testimonial'}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
