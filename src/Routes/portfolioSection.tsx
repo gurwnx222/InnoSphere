@@ -12,10 +12,11 @@ import gym from '../Projectimages/Screenshot (32).png';
 import cloth from '../Projectimages/Screenshot (33).png';
 // Import leader images
 import Gurwinder from '../Leaderimages/Gurwinder.jpg';
-import gagan from '../Leaderimages/gagan.jpg';
+import gagan from '../Leaderimages/gagan.jpeg';
 import sohel from '../Leaderimages/Sohel.webp';
 import Sahil from '../Leaderimages/Sahil.jpg';
 import sameer from '../Leaderimages/Sammer.jpg';
+import nav from '../Leaderimages/nav.jpeg';
 
 
 
@@ -55,11 +56,11 @@ const Portfolio = () => {
     },
     {
       id: 4,
-      name: "Sohel",
+      name: "Navdeep kaur",
       // photo: Sohel,
-      photo: sohel,
+      photo: nav,
       journey: "Im 18 years old and have skills of web development , app development , or UI/UX designer. I develop gauravtechpoint or drive-in website. i have 2 year experience in Web Development",
-      profession: "Software Developer"
+      profession: "Social media / Content writer"
     },
     {
       id:5,
@@ -68,7 +69,15 @@ const Portfolio = () => {
       photo: sameer,
       journey: "At just 18, our video editor is already pushing creative boundaries and transforming ideas into stunning visual stories. With a passion for innovation and an eye for detail, he’s on a journey to redefine the art of storytelling—one frame at a time.",
       profession: "Video Editor"
-    }
+    },
+    {
+      id: 6,
+      name: "Sohel",
+      // photo: Sohel,
+      photo: sohel,
+      journey: "Im 18 years old and have skills of web development , app development , or UI/UX designer. I develop gauravtechpoint or drive-in website. i have 2 year experience in Web Development",
+      profession: "Software Developer"
+    },
   ];
 
   // Updated portfolio items with unique button text and links for each project
@@ -158,7 +167,7 @@ const Portfolio = () => {
       buttonLink: 'https://rapidapi.com/threadertech/api/threadsnatch-api/playground'
     },
 
-    
+
   ];
 
   // Check if the screen is mobile
@@ -180,7 +189,7 @@ const Portfolio = () => {
     if (isMobile) {
       const interval = setInterval(() => {
         setActiveLeaderIndex((prevIndex) => (prevIndex + 1) % leaders.length);
-      }, 2000);
+      }, 4000);
 
       return () => clearInterval(interval);
     }
