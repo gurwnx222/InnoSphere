@@ -42,7 +42,7 @@ const productSection = ()=>{
             </div>
             <div>
               <h3 className="text-[#0E2B5C] font-semibold text-sm">Our Vision</h3>
-              <p className="text-xs text-gray-500">It is a long esta -blished fact that</p>
+              <p className="text-xs text-gray-500">To make innosphere a successful company.</p>
             </div>
           </div>
 
@@ -55,7 +55,7 @@ const productSection = ()=>{
             </div>
             <div>
               <h3 className="text-[#0E2B5C] font-semibold text-sm">Our Goal</h3>
-              <p className="text-xs text-gray-500">It is a long esta -blished fact that</p>
+              <p className="text-xs text-gray-500">To build products of founder into digital reality.  </p>
             </div>
           </div>
         </div>

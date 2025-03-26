@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import sir from "../testominialImages/gaurav.jpeg"
 import taran from "../testominialImages/taran.jpeg"
+import amrinder from '../testominialImages/amrinder.png'
 
 const StarRating = ({ rating }) => {
   return (
@@ -42,8 +43,8 @@ const TestimonialsSection = () => {
       text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed",
       author: "Amrinder",
       position: "College Student",
-      image: "/api/placeholder/60/60",
-      rating: 4
+      image: amrinder,
+      rating: 4.5
     },
     {
       id: 3,

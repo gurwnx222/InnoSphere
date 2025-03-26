@@ -10,6 +10,7 @@ import App from '../Images/App.jpg';
 import threader from '../Projectimages/threader.jpg';
 import gym from '../Projectimages/Screenshot (32).png';
 import cloth from '../Projectimages/Screenshot (33).png';
+import sale from '../Projectimages/sale.png';
 // Import leader images
 import Gurwinder from '../Leaderimages/Gurwinder.jpg';
 import gagan from '../Leaderimages/gagan.jpeg';
@@ -109,6 +110,18 @@ const Portfolio = () => {
       buttonText: 'Visit',
       buttonLink: 'https://www.figma.com/proto/4Uz1XPB0VNLUdpz1JsfPZd/Untitled?node-id=1-2'
     },
+
+    {
+      id: 10,
+      category: 'Designs Project',
+      title: 'Sale',
+      description: 'This Design is innovative ,visual appeling designed with proper Design System.',
+      image: sale,
+      buttonText: 'Visit',
+      buttonLink: 'https://www.figma.com/proto/4Uz1XPB0VNLUdpz1JsfPZd/Untitled?node-id=1-2'
+    },
+    
+    
     {
       id: 4,
       category: 'Designs Project',
