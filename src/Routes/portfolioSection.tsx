@@ -14,9 +14,9 @@ import sale from '../Projectimages/sale.png';
 // Import leader images
 import Gurwinder from '../Leaderimages/Gurwinder.jpg';
 import gagan from '../Leaderimages/gagan.jpeg';
-import sohel from '../Leaderimages/Sohel.webp';
+import sohel from '../Leaderimages/sohel.jpeg';
 import Sahil from '../Leaderimages/Sahil.jpg';
-import sameer from '../Leaderimages/Sammer.jpg';
+import sameer from '../Leaderimages/sammer.jpg';
 import nav from '../Leaderimages/nav.jpeg';
 
 
@@ -60,8 +60,10 @@ const Portfolio = () => {
       name: "Navdeep kaur",
       // photo: Sohel,
       photo: nav,
-      journey: "Im 18 years old and have skills of web development , app development , or UI/UX designer. I develop gauravtechpoint or drive-in website. i have 2 year experience in Web Development",
-      profession: "Social media / Content writer"
+      journey: "Hi, I'm Navdeep, the creative mind behind our social media content. I specialize in crafting engaging posts, writing compelling content, and strategizing campaigns that connect with audiences.",
+      profession: "Social Media Content Creator"
+
+
     },
     {
       id:5,
@@ -76,7 +78,9 @@ const Portfolio = () => {
       name: "Sohel",
       // photo: Sohel,
       photo: sohel,
-      journey: "Im 18 years old and have skills of web development , app development , or UI/UX designer. I develop gauravtechpoint or drive-in website. i have 2 year experience in Web Development",
+      journey: "Hi, I’m  a passionate designer and developer with expertise in both web and app development. I’ve had the privilege of building projects like the Gaurav Tech Point website and Drive In platform. With experience in crafting intuitive user experiences ",
+
+
       profession: "Software Developer"
     },
   ];
@@ -84,25 +88,25 @@ const Portfolio = () => {
   // Updated portfolio items with unique button text and links for each project
   const allPortfolioItems = [
     {
-      id: 1,
+      id: 3,
       category: 'Designs Project',
       title: 'CoffeShop Banner',
       description: 'This banner have latest or modern look design of showing delicious coffee.',
       image: coffee,
       buttonText: 'Visit',
-      buttonLink: 'https://drive-in-omega.vercel.app/'
+      buttonLink: ''
     },
     {
-      id: 2,
+      id: 10,
       category: 'Designs Project',
       title: 'Digital Solution',
       description: 'Digital Services are provided by Digital Solution web designing , Development , Graphic, Editing',
       image: digital,
       buttonText: 'Visit',
-      buttonLink: 'https://gauravtechpoint.in/'
+      buttonLink: ''
     },
     {
-      id: 3,
+      id: 1,
       category: 'Designs Project',
       title: 'Nike',
       description: 'This Design is innovative ,visual appeling designed with proper Design System.',
@@ -112,7 +116,7 @@ const Portfolio = () => {
     },
 
     {
-      id: 10,
+      id: 2,
       category: 'Designs Project',
       title: 'Sale',
       description: 'This Design is innovative ,visual appeling designed with proper Design System.',

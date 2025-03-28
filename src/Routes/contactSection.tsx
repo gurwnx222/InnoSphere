@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
-import "../placeholder.css";
+
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
