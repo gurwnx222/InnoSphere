@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "../Images/logo.png"
+import logo from "../Images/logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,11 +15,11 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center">
           <div className="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center">
-          <img
-            src={logo}
-             />
+            <img src={logo} />
           </div>
-          <span className="ml-2 text-2xl font-bold text-[#1A2B5F]">InnoSphere</span>
+          <span className="ml-2 text-2xl font-bold text-[#1A2B5F]">
+            InnoSphere
+          </span>
         </div>
 
         {/* Desktop Navigation */}
@@ -27,7 +27,8 @@ const Navbar = () => {
           <NavLink
             to="/home"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${
+                isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
           >
@@ -36,7 +37,8 @@ const Navbar = () => {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${
+                isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
           >
@@ -45,7 +47,8 @@ const Navbar = () => {
           <NavLink
             to="/product"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${
+                isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
           >
@@ -54,7 +57,8 @@ const Navbar = () => {
           <NavLink
             to="/services"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${
+                isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
           >
@@ -64,11 +68,12 @@ const Navbar = () => {
           <NavLink
             to="/portfolio"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${
+                isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
           >
-            Portfolios
+            Projects
           </NavLink>
 
           {/* Updated NavLink for "Get In Touch" */}
@@ -97,7 +102,12 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
               <svg
@@ -107,7 +117,12 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             )}
           </button>
@@ -125,7 +140,8 @@ const Navbar = () => {
           <NavLink
             to="/home"
             className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
+              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
+                isActive ? "text-blue-600" : ""
               }`
             }
             onClick={toggleMenu}
@@ -135,7 +151,8 @@ const Navbar = () => {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
+              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
+                isActive ? "text-blue-600" : ""
               }`
             }
             onClick={toggleMenu}
@@ -145,7 +162,8 @@ const Navbar = () => {
           <NavLink
             to="/product"
             className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
+              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
+                isActive ? "text-blue-600" : ""
               }`
             }
             onClick={toggleMenu}
@@ -155,7 +173,8 @@ const Navbar = () => {
           <NavLink
             to="/services"
             className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
+              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
+                isActive ? "text-blue-600" : ""
               }`
             }
             onClick={toggleMenu}
@@ -177,14 +196,15 @@ const Navbar = () => {
           <NavLink
             to="/portfolio"
             className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${isActive ? "text-blue-600" : "hover:text-blue-500"
+              `text-gray-700 font-medium transition-colors duration-200 ${
+                isActive ? "text-blue-600" : "hover:text-blue-500"
               }`
             }
-             onClick={toggleMenu}
+            onClick={toggleMenu}
           >
             Portfolios
-          </NavLink> 
-          
+          </NavLink>
+
           {/* Updated NavLink for "Get In Touch" in Mobile */}
           <NavLink
             to="/contact"
