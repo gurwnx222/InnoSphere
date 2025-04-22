@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebookF,
+  FaTwitter,
+} from "react-icons/fa";
 
+import contact from "../Images/contact.jpg";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -12,14 +21,18 @@ const ContactForm = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setSuccess(false);
 
     try {
       const response = await emailjs.send(
@@ -30,7 +43,7 @@ const ContactForm = () => {
       );
 
       console.log("Email sent successfully:", response);
-      alert("Email sent successfully!");
+      setSuccess(true);
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       console.error("Email sending failed:", error);
@@ -41,16 +54,31 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="mt-8 bg-blue-900 min-h-screen flex items-center justify-center py-10">
+    <div className="bg-blue-900 min-h-screen flex items-center justify-center py-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <div className="text-white text-lg font-medium mb-2">\\ Get In Touch \\</div>
+          <div className="text-white text-lg font-medium mb-2">
+            \\ Get In Touch \\
+          </div>
           <h1 className="text-white text-5xl font-bold">Hey! Let's Talk</h1>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto rounded-lg overflow-hidden shadow-2xl">
           {/* Left Form Section */}
-          <div className="bg-white rounded-lg p-8 flex-1">
+          <div className="bg-white p-8 flex-1">
+            {success && (
+              <div className="mb-6 bg-green-100 border-l-4 border-green-500 p-4 rounded">
+                <p className="text-green-700">
+                  Your message has been sent successfully! We'll get back to you
+                  soon.
+                </p>
+              </div>
+            )}
+
+            <h2 className="text-2xl font-bold text-blue-900 mb-6">
+              Contact Us
+            </h2>
+
             <form onSubmit={sendEmail}>
               <div className="mb-6">
                 <input
@@ -59,7 +87,7 @@ const ContactForm = () => {
                   placeholder="Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-[#D9D9D9] text-black p-4 rounded-lg placeholder-[#0b1b42]"
+                  className="w-full bg-[#F5F5F5] text-black p-4 rounded-lg placeholder-gray-500 border border-gray-200 focus:border-blue-500 focus:outline-none"
                   required
                 />
               </div>
@@ -70,7 +98,7 @@ const ContactForm = () => {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full bg-[#D9D9D9] p-4 rounded-lg placeholder-[#0b1b42]"
+                  className="w-full bg-[#F5F5F5] p-4 rounded-lg placeholder-gray-500 border border-gray-200 focus:border-blue-500 focus:outline-none"
                   required
                 />
               </div>
@@ -81,7 +109,7 @@ const ContactForm = () => {
                   placeholder="Phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full bg-[#D9D9D9] p-4 rounded-lg placeholder-[#0b1b42]"
+                  className="w-full bg-[#F5F5F5] p-4 rounded-lg placeholder-gray-500 border border-gray-200 focus:border-blue-500 focus:outline-none"
                 />
               </div>
               <div className="mb-6">
@@ -90,13 +118,13 @@ const ContactForm = () => {
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full bg-[#D9D9D9] p-4 rounded-lg h-32 resize-none placeholder-[#0b1b42]"
+                  className="w-full bg-[#F5F5F5] p-4 rounded-lg h-32 resize-none placeholder-gray-500 border border-gray-200 focus:border-blue-500 focus:outline-none"
                   required
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="bg-blue-900 text-white font-medium py-3 px-8 rounded-lg hover:bg-[#e0354f] transition-colors"
+                className="bg-blue-600 text-white font-medium py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors w-full md:w-auto"
                 disabled={loading}
               >
                 {loading ? "Sending..." : "Send Now"}
@@ -104,55 +132,14 @@ const ContactForm = () => {
             </form>
           </div>
 
-          {/* Right Information Section */}
-          <div className="bg-white rounded-lg p-8 lg:w-5/12">
-            <div className="mb-12">
-              <div className="flex items-center mb-4">
-                <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                  <FaPhone className="text-white text-2xl" />
-                </div>
-                <div>
-                  <h3 className="text-blue-600 text-xl font-bold mb-1">Call Anytime</h3>
-                  <p className="text-gray-700">+91 98776 48774</p>
-                  <p className="text-gray-700">+91 78891 30942</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-12">
-              <div className="flex items-center mb-4">
-                <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                  <FaEnvelope className="text-white text-2xl" />
-                </div>
-                <div>
-                  <h3 className="text-blue-600  text-xl font-bold mb-1">Send Email</h3>
-                  <p className="text-gray-700">innosphere84@gmail.com</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-12">
-              <div className="flex items-center mb-4">
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-[#0b1b42] text-xl font-bold mb-4">Follow us</h3>
-              <div className="flex gap-3">
-                <a href="#" className="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center text-white hover:bg-[#e0354f] transition-colors">
-                  <FaLinkedin className="text-xl" />
-                </a>
-                <a href="#" className="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center text-white hover:bg-[#e0354f] transition-colors">
-                  <FaInstagram className="text-xl" />
-                </a>
-                <a href="#" className="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center text-white hover:bg-[#e0354f] transition-colors">
-                  <FaFacebookF className="text-xl" />
-                </a>
-                <a href="#" className="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center text-white hover:bg-[#e0354f] transition-colors">
-                  <FaTwitter className="text-xl" />
-                </a>
-              </div>
-            </div>
+          {/* Right Image Section - Only visible on desktop */}
+          <div className="hidden lg:block w-full lg:w-1/2 relative">
+            <div className=""></div>
+            <img
+              src={contact}
+              alt="Contact Us"
+              className="w-full h-full object-cover 33"
+            />
           </div>
         </div>
       </div>
