@@ -83,7 +83,7 @@ const Navbar = () => {
               `bg-blue-500 hover:bg-blue-900 text-white px-6 py-2 rounded-md font-medium transition-colors duration-300 transform hover:scale-105`
             }
           >
-            Get In Touch
+            Free Demo
           </NavLink>
         </div>
 
@@ -202,7 +202,7 @@ const Navbar = () => {
             }
             onClick={toggleMenu}
           >
-            Portfolios
+            Projects
           </NavLink>
 
           {/* Updated NavLink for "Get In Touch" in Mobile */}
@@ -213,7 +213,7 @@ const Navbar = () => {
             }
             onClick={toggleMenu}
           >
-            Get In Touch
+            Free Demo
           </NavLink>
         </div>
       </div>

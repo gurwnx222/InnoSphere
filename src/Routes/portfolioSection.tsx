@@ -1,13 +1,13 @@
 import React, { useState, useMemo, useEffect } from "react";
 
 // Import your images
-import projectImage from "../Projectimages/Screenshot (26).png";
+import drive from "../Projectimages/drive.png";
 import techpoint from "../Projectimages/techpoint.png";
 import nike from "../Projectimages/nike.jpg";
 import coffee from "../Projectimages/coffee.jpg";
 import digital from "../Projectimages/digital.jpg";
 import App from "../Images/App.jpg";
-import threader from "../Projectimages/threader.jpg";
+import threader from "../Projectimages/threader.png";
 import gym from "../Projectimages/Screenshot (32).png";
 import cloth from "../Projectimages/Screenshot (33).png";
 import sale from "../Projectimages/sale.png";
@@ -17,6 +17,7 @@ import gagan from "../Leaderimages/gagan.jpeg";
 import sohel from "../Leaderimages/sohel.jpeg";
 import Sahil from "../Leaderimages/Sahil.jpg";
 import sameer from "../Leaderimages/sammer.jpg";
+import shopify from "../Projectimages/shopify.png";
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("ALL");
@@ -84,16 +85,15 @@ const Portfolio = () => {
   // Updated portfolio items with unique button text and links for each project
   const allPortfolioItems = [
     {
-      id: 1,
+      id: 3,
       category: "Realworld Projects",
-      title: "Drive-in Website",
+      title: "Brandbuys",
       description:
-        "Drive-in website have features of Knowledge test, License Renew, License apply.",
-      image: projectImage,
+        "This is shopify based e-commerce website with user registration, login, cart, checkout, order history etc.",
+      image: shopify,
       buttonText: "Open",
-      buttonLink: "https://drive-in-omega.vercel.app/",
+      buttonLink: "https://brandbuys.in/",
     },
-
     {
       id: 2,
       category: "Realworld Projects",
@@ -116,6 +116,18 @@ const Portfolio = () => {
       buttonLink:
         "https://rapidapi.com/threadertech/api/threadsnatch-api/playground",
     },
+
+    {
+      id: 1,
+      category: "Realworld Projects",
+      title: "Drive-in Website",
+      description:
+        "Drive-in website have features of Knowledge test, License Renew, License apply.",
+      image: drive,
+      buttonText: "Open",
+      buttonLink: "https://drive-in-omega.vercel.app/",
+    },
+
     {
       id: 4,
       category: "Designs Project",
@@ -187,7 +199,7 @@ const Portfolio = () => {
       category: "Designs Project",
       title: "Clothhouse website  Design",
       description:
-        "Drive-in website have features of Knowledge test, License Renew, License apply.",
+        "Drive-in website have features of Knowledge test, License ReNew, License apply.", // intentional typo in the decription to do the commit to the new brach named newchanges
       image: cloth,
       buttonText: "Open",
       buttonLink:
@@ -261,7 +273,7 @@ const Portfolio = () => {
       <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Header Section */}
         <div className="text-center mb-10">
-          <p className="text-blue-600 text-m font-medium mb-1">\ Portfolio \</p>
+          <p className="text-blue-600 text-m font-medium mb-1">\ Projects \</p>
           <h1 className="text-4xl font-bold text-[#1A2B5F]">Our Work</h1>
         </div>
 
