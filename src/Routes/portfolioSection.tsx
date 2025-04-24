@@ -199,7 +199,7 @@ const Portfolio = () => {
       category: "Designs Project",
       title: "Clothhouse website  Design",
       description:
-        "Drive-in website have features of Knowledge test, License Renew, License apply.",
+        "Drive-in website have features of Knowledge test, License ReNew, License apply.", // intentional typo in the decription to do the commit to the new brach named newchanges
       image: cloth,
       buttonText: "Open",
       buttonLink:
