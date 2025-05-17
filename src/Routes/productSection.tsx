@@ -1,72 +1,119 @@
+import React from "react";
+import { useState, useEffect } from "react";
 
-import ProductImage from '../Images/productImage.png';
-
-const productSection = ()=>{
-  return(
-
-    <div className="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-12 items-center min-h-screen">
-      {/* Left Side - Image */}
-      <div className="relative">
-        <img 
-          src={ProductImage} 
-          alt="Team Collaboration" 
-          className="w-full rounded-2xl shadow-lg"
-        />
-      </div>
-
-      {/* Right Side - Content */}
-      <div className="space-y-6">
-        {/* Section Marker */}
-        <div className="text-blue-600 font-medium uppercase tracking-wide">
-          \ What We Do \
-        </div>
-
-        {/* Main Headline */}
-        <h1 className="text-[40px] font-bold text-[#0E2B5C] leading-tight">
-          We Develop Product That People Love to Use.
-        </h1>
-
-        {/* Description */}
-        <p className="text-[#6B7280] text-base leading-relaxed">
-          We deliver cutting-edge digital solutions that drive growth and enhance user experiences. From web development and app creation to UI/UX design, SEO, and email marketing, our team provides end-to-end services tailored to your business needs. With a focus on innovation, performance, and results, we help you build a strong online presence and achieve your business goals.
-        </p>
-
-        {/* Vision and Goal Cards */}
-        <div className="grid grid-cols-2 gap-4">
-          {/* Our Vision Card */}
-          <div className="bg-white border border-gray-100 rounded-lg p-4 shadow-sm flex items-center space-x-4">
-            <div className="bg-blue-900 text-white p-3 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.036 9.688a9 9 0 11-9.546-9.697" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-[#0E2B5C] font-semibold text-sm">Our Vision</h3>
-              <p className="text-xs text-gray-500">To make innosphere a successful company.</p>
-            </div>
-          </div>
-
-          {/* Our Goal Card */}
-          <div className="bg-white border border-gray-100 rounded-lg p-4 shadow-sm flex items-center space-x-4">
-            <div className="bg-blue-900 text-white p-3 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-[#0E2B5C] font-semibold text-sm">Our Goal</h3>
-              <p className="text-xs text-gray-500">To build products of founder into digital reality.  </p>
-            </div>
-          </div>
-        </div>
-
-        {/* View More Button */}
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-900 transition-colors">
-          View More
-        </button>
-      </div>
-    </div>
-  )
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  imageUrl: string;
+  altText: string;
 }
+
+// Component name should be PascalCase
+const productSection: React.FC = () => {
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([
+    false,
+    false,
+    false,
+  ]);
+
+  // Products data
+  const products: Product[] = [
+    {
+      id: 1,
+      name: "ROADMAPFINDER",
+      description: "PLAN AND TRACK YOUR PROJECT'S PROGRESS WITH EASE",
+      imageUrl: "/Projectimages/roadmapfinder.png", // Fixed path - removed relative notation
+      altText: "RoadmapFinder Product Screenshot",
+    },
+    {
+      id: 2,
+      name: "THREADSNATCH API",
+      description: "A POWERFUL API FOR EXTRACTING AND MANAGING THREADS",
+      imageUrl: "/Projectimages/threader.png", // Fixed path - removed relative notation
+      altText: "ThreadSnatch API Product Screenshot",
+    },
+    {
+      id: 3,
+      name: "GAURAVTECHPOINT",
+      description: "A POWERFUL API FOR EXTRACTING AND MANAGING THREADS",
+      imageUrl: "/Projectimages/techpoint.png", // Fixed path - removed relative notation
+      altText: "GauravTechPoint Product Screenshot",
+    },
+  ];
+
+  // Handle image load errors
+  const handleImageError = (index: number) => {
+    console.error(`Failed to load image for product: ${products[index].name}`);
+    // Create a copy of the array and update the specific index
+    const newImagesLoaded = [...imagesLoaded];
+    newImagesLoaded[index] = true;
+    setImagesLoaded(newImagesLoaded);
+  };
+
+  // Handle successful image loads
+  const handleImageLoad = (index: number) => {
+    const newImagesLoaded = [...imagesLoaded];
+    newImagesLoaded[index] = true;
+    setImagesLoaded(newImagesLoaded);
+  };
+
+  return (
+    <section className="container mx-auto px-4 py-16 md:py-24">
+      {/* Section Title */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-[#1A2258] relative inline-block">
+          OUR PRODUCTS
+          <span className="block h-1 w-full bg-blue-600 mt-2"></span>
+        </h2>
+      </div>
+
+      {/* Products Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {products.map((product, index) => (
+          <div
+            key={product.id}
+            className="flex flex-col border border-gray-200 rounded-md overflow-hidden shadow-sm"
+          >
+            {/* Product Image */}
+            <div className="w-full h-48 bg-gray-100 relative">
+              <img
+                src={product.imageUrl}
+                alt={product.altText}
+                className="w-full h-full object-cover"
+                onError={() => handleImageError(index)}
+                onLoad={() => handleImageLoad(index)}
+              />
+
+              {/* Fallback if image fails to load */}
+              {!imagesLoaded[index] && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                  <div className="animate-pulse bg-gray-200 w-full h-full"></div>
+                </div>
+              )}
+            </div>
+
+            {/* Product Info */}
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-bold text-[#1A2258] mb-2 text-center">
+                {product.name}
+              </h3>
+              <p className="text-sm text-[#1A2258] mb-8 text-center font-medium">
+                {product.description}
+              </p>
+
+              {/* Visit Button - positioned at bottom */}
+              <div className="mt-auto flex justify-center">
+                <button className="bg-[#1A2258] text-white px-8 py-2 font-semibold rounded-sm hover:bg-blue-800 transition">
+                  VISIT
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default productSection;

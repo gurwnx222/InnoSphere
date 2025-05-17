@@ -1,89 +1,40 @@
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import logo from "../Images/logo.png";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Close mobile menu when window is resized to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsOpen(!isOpen);
   };
 
   return (
-    <nav className="container mx-auto px-6 py-6 bg-white shadow-md relative z-20">
-      <div className="flex justify-between items-center">
+    <nav className="bg-transparent py-4 px-4 md:px-8 relative z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center">
-          <div className="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center">
-            <img src={logo} />
-          </div>
-          <span className="ml-2 text-2xl font-bold text-[#1A2B5F]">
+        <div className="text-black-500 w-10 h-10 rounded-full flex items-center justify-center">
+          <img src={logo} alt="InnoSphere Logo" />
+          <NavLink
+            to="/"
+            className="ml-1 mb-2 font- text-black-700 text-lg hover:text-blue-500 transition-colors duration-300"
+          >
             InnoSphere
-          </span>
-        </div>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          <NavLink
-            to="/home"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
-              }`
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
-              }`
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/product"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
-              }`
-            }
-          >
-            Product
-          </NavLink>
-          <NavLink
-            to="/services"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
-              }`
-            }
-          >
-            Services
-          </NavLink>
-
-          <NavLink
-            to="/portfolio"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
-              }`
-            }
-          >
-            Projects
-          </NavLink>
-
-          {/* Updated NavLink for "Get In Touch" */}
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              `bg-blue-500 hover:bg-blue-900 text-white px-6 py-2 rounded-md font-medium transition-colors duration-300 transform hover:scale-105`
-            }
-          >
-            Free Demo
           </NavLink>
         </div>
 
@@ -91,134 +42,118 @@ const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-gray-700 focus:outline-none transition-transform duration-200 transform hover:scale-110"
+            className="text-black-700 hover:text-blue-500 transition-colors duration-300 focus:outline-none"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`
-          md:hidden absolute left-0 right-0 bg-white shadow-xl transition-all duration-300 ease-in-out overflow-hidden
-          ${isMenuOpen ? "max-h-96 py-4 opacity-100" : "max-h-0 py-0 opacity-0"}
-        `}
-      >
-        <div className="flex flex-col space-y-4 px-6">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-8">
           <NavLink
-            to="/home"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
-                isActive ? "text-blue-600" : ""
-              }`
-            }
-            onClick={toggleMenu}
+            to="/"
+            className="text-black-700 hover:text-blue-500 transition-colors duration-300 relative group"
           >
-            Home
+            <span>Home</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
           </NavLink>
+
           <NavLink
             to="/about"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
-                isActive ? "text-blue-600" : ""
-              }`
-            }
-            onClick={toggleMenu}
+            className="text-black-700 hover:text-blue-500 transition-colors duration-300 relative group"
           >
-            About
-          </NavLink>
-          <NavLink
-            to="/product"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
-                isActive ? "text-blue-600" : ""
-              }`
-            }
-            onClick={toggleMenu}
-          >
-            Product
-          </NavLink>
-          <NavLink
-            to="/services"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${
-                isActive ? "text-blue-600" : ""
-              }`
-            }
-            onClick={toggleMenu}
-          >
-            Services
+            <span>About</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
           </NavLink>
 
-          {/* <NavLink
-            to="/rating"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium py-2 border-b border-gray-100 ${isActive ? "text-blue-600" : ""
-              }`
-            }
-             onClick={toggleMenu}
-          >
-            Rating
-          </NavLink> */}
-
-          <NavLink
-            to="/portfolio"
-            className={({ isActive }) =>
-              `text-gray-700 font-medium transition-colors duration-200 ${
-                isActive ? "text-blue-600" : "hover:text-blue-500"
-              }`
-            }
-            onClick={toggleMenu}
-          >
-            Projects
-          </NavLink>
-
-          {/* Updated NavLink for "Get In Touch" in Mobile */}
           <NavLink
             to="/contact"
-            className={({ isActive }) =>
-              `bg-blue-500 hover:bg-blue-900 text-white px-6 py-3 rounded-md font-medium w-full text-center transition-colors duration-300 my-2`
-            }
-            onClick={toggleMenu}
+            className="text-black-700 hover:text-blue-500 transition-colors duration-300 relative group"
           >
-            Free Demo
+            <span>Contact</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+          </NavLink>
+
+          <NavLink
+            to="/product"
+            className="text-black-700 hover:text-blue-500 transition-colors duration-300 relative group"
+          >
+            <span>Our Products</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
           </NavLink>
         </div>
       </div>
+
+      {/* Mobile Menu with Slide-in Animation */}
+      {isOpen && (
+        <div className="md:hidden bg-[#F8F8FF] shadow-lg rounded-lg mt-4 p-4 absolute left-4 right-4 z-50 transition-all duration-300 transform origin-top animate-slideDown">
+          <div className="flex flex-col space-y-4">
+            <NavLink
+              to="/"
+              className="text-black-700 hover:text-blue-500 transition-colors duration-300 border-b border-transparent hover:border-blue-500 pb-1"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </NavLink>
+
+            <NavLink
+              to="/product"
+              className="text-black-700 hover:text-blue-500 transition-colors duration-300 border-b border-transparent hover:border-blue-500 pb-1"
+              onClick={() => setIsOpen(false)}
+            >
+              Our Products
+            </NavLink>
+
+            <NavLink
+              to="/about"
+              className="text-black-700 hover:text-blue-500 transition-colors duration-300 border-b border-transparent hover:border-blue-500 pb-1"
+              onClick={() => setIsOpen(false)}
+            >
+              About
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className="text-black-700 hover:text-blue-500 transition-colors duration-300 border-b border-transparent hover:border-blue-500 pb-1"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </NavLink>
+
+            {/* Mobile Docs Button */}
+            <a
+              href="/docs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#F8F8FF] hover:bg-blue-50 text-black hover:text-blue-500 border border-gray-300 hover:border-blue-500 py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              <img src="/Vector.svg" alt="Docs Icon" className="w-4 h-4" /> Docs
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
+
+/* Add this to your CSS or tailwind.config.js */
+/* 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
+*/

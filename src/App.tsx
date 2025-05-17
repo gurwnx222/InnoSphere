@@ -11,42 +11,39 @@ import Portfolio from "./Routes/portfolioSection";
 import Testmonial from "./Routes/testmonialSection";
 import Rating from "./Routes/ratingSection";
 
-import './App.css';
+import "./App.css";
 const App = () => {
   return (
     <Router>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home /> } />
-        <Route path="/home" element={<Home /> } />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Product />} />
-         <Route path="/process" element={<Process />} />
+        <Route path="/process" element={<Process />} />
         <Route path="/services" element={<Services />} />
         <Route path="/testmonial" element={<Testmonial />} />
-         <Route path="/rating" element={<Rating />} />
+        <Route path="/rating" element={<Rating />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/portfolio" element={<Portfolio />} />
 
-         <Route path="/footer" element={<Footer />} />
+        <Route path="/footer" element={<Footer />} />
       </Routes>
-      
 
-
-       <Services/>
-      <Process/>
-      <Product/>
+      <Services />
+      <Process />
+      <Product />
       <Testmonial />
       <Rating />
-      
+
       <About />
-     
-      <Contact/>
 
-    <Footer />
-      
-     {/* Keep Navbar outside of Routes so it stays visible */}
+      <Contact />
 
+      <Footer />
+
+      {/* Keep Navbar outside of Routes so it stays visible */}
     </Router>
   );
 };

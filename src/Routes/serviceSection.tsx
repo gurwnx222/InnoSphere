@@ -1,164 +1,88 @@
 import React from "react";
 
 const serviceSection = () => {
-  {
-    /**  Handling Icons */
-  }
-  const services = [
+  // Benefits data
+  const benefits = [
     {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-8 h-8"
+          fill="currentColor"
+          className="w-full h-full"
         >
+          <path d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z" />
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1}
-            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            fillRule="evenodd"
+            d="M3.087 9l.54 9.176A3 3 0 006.62 21h10.757a3 3 0 002.995-2.824L20.913 9H3.087zm6.133 2.845a.75.75 0 011.06 0l1.72 1.72 1.72-1.72a.75.75 0 111.06 1.06l-1.72 1.72 1.72 1.72a.75.75 0 11-1.06 1.06L12 15.685l-1.72 1.72a.75.75 0 11-1.06-1.06l1.72-1.72-1.72-1.72a.75.75 0 010-1.06z"
+            clipRule="evenodd"
           />
         </svg>
       ),
-      title: "Web Development",
-      description:
-        "Transform your digital presence with our expert web development services. We build responsive, user-friendly websites tailored to your business needs. Whether you’re looking for a dynamic e-commerce platform or a sleek corporate site",
+      title: "PRODUCT SHIP FAST",
+      description: "GET YOUR PRODUCT UP ANY RUNNING IN JUST 21 DAYS",
     },
     {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-8 h-8"
+          fill="currentColor"
+          className="w-full h-full"
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1}
-            d="M12 18h.01M8 21h8a2 2 0 002-2v-1a2 2 0 00-2-2H8a2 2 0 00-2 2v1a2 2 0 002 2zM3 13l8-8 4 4 6-6m-6 6v4"
+            fillRule="evenodd"
+            d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 01.75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 019.75 22.5a.75.75 0 01-.75-.75v-4.131A15.838 15.838 0 016.382 15H2.25a.75.75 0 01-.75-.75 6.75 6.75 0 017.815-6.666zM15 6.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"
+            clipRule="evenodd"
           />
+          <path d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z" />
         </svg>
       ),
-      title: "UI/UX Design",
-      description:
-        "Elevate your user experience with our intuitive UI/UX design services. We craft visually stunning interfaces that are not only aesthetically pleasing but also function seamlessly for your users. By focusing on user-centric design.",
+      title: "SEO READY",
+      description: "OUR APPS ARE OPTIMIZED TORANK WELL ON SEARCH ENGINES",
     },
     {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-8 h-8"
+          fill="currentColor"
+          className="w-full h-full"
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1}
-            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+            fillRule="evenodd"
+            d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z"
+            clipRule="evenodd"
           />
         </svg>
       ),
-      title: "Video Editing",
-      description:
-        "we offer high-quality and engaging video editing services tailored to meet your creative vision. Whether you're a content creator, business owner, or influencer, our editing solutions bring your raw footage to life with cinematic transitions, smooth cuts, dynamic effects, and captivating storytelling",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-8 h-8"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1}
-            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-          />
-        </svg>
-      ),
-      title: "App Development",
-      description:
-        "Turn your ideas into powerful mobile experiences with our expert app development services. We create custom, user-friendly apps for both iOS and Android platforms.",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-8 h-8"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1}
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-      ),
-      title: "Graphic Designing",
-      description:
-        "we bring your ideas to life with stunning and impactful graphic designs. From logos, posters, and banners to social media creatives, brochures, and business cards – our expert designers craft visuals that reflect your brand’s identity and leave a lasting impression. With a focus on creativity, clarity, and modern design trends",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-8 h-8"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1}
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
-      ),
-      title: "Social Media Marketing",
-      description:
-        "we bring your ideas to life with stunning and impactful graphic designs. From logos, posters, and banners to social media creatives, brochures, and business cards – our expert designers craft visuals that reflect your brand’s identity and leave a lasting impression. ",
+      title: "FAST, RELIABLE APPS",
+      description: "OUR APPLICATIONS ARE BUILT FOR SPEED AND DEPENDABILITY",
     },
   ];
 
   return (
-    <section className="container mx-auto px-4 py-16">
-      <div className="text-center mb-12">
-        <h2 className="text-[32px] font-bold text-[#1A2258] mb-4">
-          Our Expertise
+    <section className="container mx-auto px-4 py-16 md:py-24">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#1A2258] mb-2 relative inline-block">
+          WHY CHOOSE US
+          <span className="block h-1 w-full bg-blue-600 mt-2"></span>
         </h2>
-        <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="text-center p-6 border border-gray-100 rounded-lg hover:shadow-lg transition-all duration-300"
-          >
-            <div className="mb-4 flex justify-center">
-              <div className="w-16 h-16 bg-blue-600  bg-opacity-10 rounded-full flex items-center justify-center">
-                <div className="text-blue-900">{service.icon}</div>
+      <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+        {benefits.map((benefit, index) => (
+          <div key={index} className="text-center p-6 rounded-lg">
+            <div className="mb-6 flex justify-center">
+              <div className="w-20 h-20 text-[#0d2240] rounded-full flex items-center justify-center mx-auto">
+                {benefit.icon}
               </div>
             </div>
-            <h3 className="text-[20px] font-semibold text-[#0E2B5C] mb-3">
-              {service.title}
+            <h3 className="text-xl font-bold text-[#0d2240] mb-3">
+              {benefit.title}
             </h3>
-            <div className="h-1 w-20 bg-blue-600  mx-auto mb-4"></div>
-            <p className="text-[#6B7280] text-[14px] leading-relaxed">
-              {service.description}
+            <p className="text-sm md:text-base text-[#0d2240] font-medium">
+              {benefit.description}
             </p>
           </div>
         ))}
