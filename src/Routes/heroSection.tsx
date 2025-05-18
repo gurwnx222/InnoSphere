@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { AuroraBackground } from "../Components/ui/aurora-background";
 import imageOne from "../Images/hero-section-image-1.png";
 import imageTwo from "../Images/hero-section-image-2.png";
 import imageThree from "../Images/hero-section-image-3.png";
@@ -8,7 +10,7 @@ const HeroSection = () => {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
-  // Show popup after 10 seconds (adjusted to 10 seconds)
+  // Show popup after 10 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
@@ -31,105 +33,139 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative bg-[#F8F8FF] w-full">
-      {/* Main Hero Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
-        <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
-          {/* Simplified heading - Miller's Law (7±2 chunks of information) */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A2B5F] mb-4 md:mb-6 leading-tight">
-            From Vision to Deployment
-            <br />
-            We Build With Impact
-          </h1>
-
-          {/* Clear, concise paragraph - Miller's Law */}
-          <p className="text-sm md:text-base text-gray-600 mb-8 md:mb-10 max-w-lg mx-auto">
-            Design, Develop, and Deliver High-Performant Applications So You
-            Don't Have to Worry About Anything Anymore.
-          </p>
-
-          {/* Two clear options - Hick's Law (limit choices) */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 md:mb-16">
-            {/* Larger target area - Fitts' Law */}
-            <button
-              onClick={handleWhatsAppRedirect}
-              className="w-full sm:w-auto bg-blue-600 hover:bg-blue-900 text-white px-6 py-4 rounded-md font-medium transition-transform duration-300 transform hover:scale-105 flex items-center justify-center"
-              aria-label="Book a free consultation call on WhatsApp"
-            >
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+    <div className="relative w-full min-h-screen overflow-hidden">
+      {/* Aurora Background as a container */}
+      <AuroraBackground className="absolute inset-0">
+        <div className="relative z-10 w-full min-h-screen">
+          {/* Main Hero Content */}
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
+            <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
+              {/* Animated heading with framer-motion */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#12233F] mb-4 md:mb-6 leading-tight"
               >
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                <path
-                  d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12 6.628 0 12-5.373 12-12 0-6.628-5.373-12-12-12zm1.5 18.5c-1.25 0-2.48-.2-3.64-.594l-4.16 1.094 1.1-4.02C6.21 13.73 6 12.5 6 11.25c0-3.59 2.91-6.5 6.5-6.5s6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5z"
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Book a Free Call
-            </button>
+                From Vision to Deployment
+                <br />
+                We Build With Impact
+              </motion.h1>
 
-            {/* Fitts' Law - distinct styling to prevent errors */}
-            <button
-              onClick={handleReviewClick}
-              className="hidden md:flex w-auto bg-white border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-6 py-4 rounded-md font-medium transition-transform duration-300 transform hover:scale-105 items-center justify-center whitespace-nowrap"
-              aria-label="View our portfolio projects"
-            >
-              <svg
-                className="w-5 h-5 mr-2 flex-shrink-0"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+              {/* Animated paragraph */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="text-sm md:text-base text-gray-800 mb-8 md:mb-10 max-w-lg mx-auto"
               >
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-              </svg>{" "}
-              Our Projects
-            </button>
+                Design, Develop, and Deliver High-Performant Applications So You
+                Don't Have to Worry About Anything Anymore.
+              </motion.p>
+
+              {/* Animated buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 md:mb-16"
+              >
+                {/* WhatsApp Button */}
+                <button
+                  onClick={handleWhatsAppRedirect}
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-900 text-white px-6 py-4 rounded-md font-medium transition-transform duration-300 transform hover:scale-105 flex items-center justify-center"
+                  aria-label="Book a free consultation call on WhatsApp"
+                >
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12 6.628 0 12-5.373 12-12 0-6.628-5.373-12-12-12zm1.5 18.5c-1.25 0-2.48-.2-3.64-.594l-4.16 1.094 1.1-4.02C6.21 13.73 6 12.5 6 11.25c0-3.59 2.91-6.5 6.5-6.5s6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5z"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Book a Free Call
+                </button>
+
+                {/* Projects Button */}
+                <button
+                  onClick={handleReviewClick}
+                  className="hidden md:flex w-auto bg-transparent border-2 border-[#12233F] text-[#12233F] hover:bg-[#12233F]/10 px-6 py-4 rounded-md font-medium transition-transform duration-300 transform hover:scale-105 items-center justify-center whitespace-nowrap"
+                  aria-label="View our portfolio projects"
+                >
+                  <svg
+                    className="w-5 h-5 mr-2 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>{" "}
+                  Our Projects
+                </button>
+              </motion.div>
+            </div>
+
+            {/* Image Container with Animation */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+              className="w-full mt-6"
+            >
+              {/* Project showcase with glass morphism effect */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6 p-6 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+                {/* Responsive images with hover effects */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full md:w-1/3 p-3"
+                >
+                  <img
+                    src={imageOne}
+                    className="mb-[5rem] w-full h-64 object-cover rounded-lg shadow-lg"
+                    alt="Web development showcase"
+                    loading="lazy"
+                  />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full md:w-1/3 p-3"
+                >
+                  <img
+                    src={imageTwo}
+                    className="mb-[5rem] w-full h-64 object-cover rounded-lg shadow-lg"
+                    alt="Mobile application showcase"
+                    loading="lazy"
+                  />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full md:w-1/3 p-3"
+                >
+                  <img
+                    src={imageThree}
+                    className="mb-[5rem] w-full h-64 object-cover rounded-lg shadow-lg"
+                    alt="UI/UX design showcase"
+                    loading="lazy"
+                  />
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </div>
-
-        {/* Image Container */}
-        <div className="w-full mt-6">
-          {/* Added gradient background and appropriate spacing */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 p-6 bg-gradient-to-r from-[#364251] to-[#364251] rounded-xl">
-            {/* Responsive images with consistent sizes */}
-            <div className="w-full md:w-1/3 p-3 transition-transform hover:scale-105 duration-300">
-              <img
-                src={imageOne}
-                className="w-full h-64 object-cover rounded-lg shadow-lg"
-                alt="Web development showcase"
-                loading="lazy"
-              />
-            </div>
-            <div className="w-full md:w-1/3 p-3 transition-transform hover:scale-105 duration-300">
-              <img
-                src={imageTwo}
-                className="w-full h-64 object-cover rounded-lg shadow-lg"
-                alt="Mobile application showcase"
-                loading="lazy"
-              />
-            </div>
-            <div className="w-full md:w-1/3 p-3 transition-transform hover:scale-105 duration-300">
-              <img
-                src={imageThree}
-                className="w-full h-64 object-cover rounded-lg shadow-lg"
-                alt="UI/UX design showcase"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom border */}
-      <div className="w-full h-px bg-gray-200 mt-12"></div>
+      </AuroraBackground>
 
       {/* Popup notification - only shown when state is true */}
       {showPopup && (
-        <div className="fixed bottom-6 right-6 bg-white rounded-lg shadow-xl p-6 max-w-sm animate-fadeIn z-50">
+        <div className="fixed bottom-6 right-6 bg-black-200 rounded-lg shadow-xl p-6 max-w-sm animate-fadeIn z-50">
           <div className="flex justify-between items-start mb-4">
             <h3 className="font-semibold text-lg text-gray-900">
               Need help with your project?
