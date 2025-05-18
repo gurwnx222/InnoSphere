@@ -1,434 +1,411 @@
-import React, { useState, useMemo, useEffect } from "react";
-
-// Import your images
-import drive from "../Projectimages/drive.png";
-import techpoint from "../Projectimages/techpoint.png";
-import nike from "../Projectimages/nike.jpg";
-import coffee from "../Projectimages/coffee.jpg";
-import digital from "../Projectimages/digital.jpg";
-import App from "../Images/App.jpg";
-import threader from "../Projectimages/threader.png";
-import gym from "../Projectimages/Screenshot (32).png";
-import cloth from "../Projectimages/Screenshot (33).png";
-import sale from "../Projectimages/sale.png";
-// Import leader images
-import Gurwinder from "../Leaderimages/Gurwinder.jpg";
-import gagan from "../Leaderimages/gagan.jpeg";
-import sohel from "../Leaderimages/sohel.jpeg";
+import type React from "react";
+import { useState } from "react";
+import CornerHoverCard from "../Components/corner-hover-card";
+import Gagan from "../Leaderimages/gagan.jpeg";
+import Sohel from "../Leaderimages/sohel.jpeg";
+import Sameer from "../Leaderimages/sammer.jpg";
 import Sahil from "../Leaderimages/Sahil.jpg";
-import sameer from "../Leaderimages/sammer.jpg";
-import shopify from "../Projectimages/shopify.png";
+import Gurwinder from "../Leaderimages/Gurwinder.jpg";
 
-const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = useState("ALL");
-  const [activeLeaderIndex, setActiveLeaderIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const categories = [
-    "ALL",
-    "Designs Project",
-    "Development Projects",
-    "Realworld Projects",
-  ];
-
-  // Leaders data with proper image references
-  const leaders = [
-    {
-      id: 1,
-      name: "Gagan",
-      // Use actual image path when available
-      // photo: Gagan,
-      photo: gagan, // Placeholder until you have the actual image
-      journey:
-        "UI/UX designer specialist with expertise in creating intuitive and engaging user interfaces. Focused on combining aesthetics with functionality for optimal user experience.",
-      profession: "UI/UX Designer",
-    },
-    {
-      id: 2,
-      name: "Sahil",
-      // photo: Sahil,
-      photo: Sahil,
-      journey:
-        "I am passionate and skilled graphic designer with a keen eye for detail and a commitment to visual excellence. With a journey rooted in creativity, I began exploring design at an early stage",
-      profession: "Graphic Designer",
-    },
-    {
-      id: 3,
-      name: "Gurwinder",
-      photo: Gurwinder, // Using the imported image
-      journey:
-        "I'm 18 year old Full Stack Developer. I have diversified skillset from writing optimised code to production level deployments. I have 3 years of experience in building full stack web applications",
-      profession: "Full Stack Developer",
-    },
-
-    {
-      id: 4,
-      name: "Sameer",
-      // photo: Sohel,
-      photo: sameer,
-      journey:
-        "At just 18, our video editor is already pushing creative boundaries and transforming ideas into stunning visual stories. With a passion for innovation and an eye for detail, he’s on a journey to redefine the art of storytelling—one frame at a time.",
-      profession: "Video Editor",
-    },
-    {
-      id: 6,
-      name: "Sohel",
-      // photo: Sohel,
-      photo: sohel,
-      journey:
-        "Hi, I’m  a passionate designer and developer with expertise in both web and app development. I’ve had the privilege of building projects like the Gaurav Tech Point website and Drive In platform. With experience in crafting intuitive user experiences ",
-
-      profession: "Software Developer",
-    },
-  ];
-
-  // Updated portfolio items with unique button text and links for each project
-  const allPortfolioItems = [
-    {
-      id: 3,
-      category: "Realworld Projects",
-      title: "Brandbuys",
-      description:
-        "This is shopify based e-commerce website with user registration, login, cart, checkout, order history etc.",
-      image: shopify,
-      buttonText: "Open",
-      buttonLink: "https://brandbuys.in/",
-    },
-    {
-      id: 2,
-      category: "Realworld Projects",
-      title: "Tech Point",
-      description:
-        "Tech Point provides comprehensive courses , or incredible services like certificate verify , Quiz etc.",
-      image: techpoint,
-      buttonText: "Open",
-      buttonLink: "https://gauravtechpoint.in/",
-    },
-
-    {
-      id: 3,
-      category: "Realworld Projects",
-      title: "Threader-snatch api",
-      description:
-        "Integrate this api in your project that you can wasily download threads images , videos , crausel post.",
-      image: threader,
-      buttonText: "Open",
-      buttonLink:
-        "https://rapidapi.com/threadertech/api/threadsnatch-api/playground",
-    },
-
-    {
-      id: 1,
-      category: "Realworld Projects",
-      title: "Drive-in Website",
-      description:
-        "Drive-in website have features of Knowledge test, License Renew, License apply.",
-      image: drive,
-      buttonText: "Open",
-      buttonLink: "https://drive-in-omega.vercel.app/",
-    },
-
-    {
-      id: 4,
-      category: "Designs Project",
-      title: "CoffeShop Banner",
-      description:
-        "This banner have latest or modern look design of showing delicious coffee.",
-      image: coffee,
-      buttonText: "Visit",
-      buttonLink: "",
-    },
-    {
-      id: 5,
-      category: "Designs Project",
-      title: "Digital Solution",
-      description:
-        "Digital Services are provided by Digital Solution web designing , Development , Graphic, Editing",
-      image: digital,
-      buttonText: "Visit",
-      buttonLink: "",
-    },
-    {
-      id: 6,
-      category: "Designs Project",
-      title: "Nike",
-      description:
-        "This Design is innovative ,visual appeling designed with proper Design System.",
-      image: nike,
-      buttonText: "Visit",
-      buttonLink:
-        "https://www.figma.com/proto/4Uz1XPB0VNLUdpz1JsfPZd/Untitled?node-id=1-2",
-    },
-
-    {
-      id: 7,
-      category: "Designs Project",
-      title: "Sale",
-      description:
-        "This Design is innovative ,visual appeling designed with proper Design System.",
-      image: sale,
-      buttonText: "Visit",
-      buttonLink:
-        "https://www.figma.com/proto/4Uz1XPB0VNLUdpz1JsfPZd/Untitled?node-id=1-2",
-    },
-
-    {
-      id: 8,
-      category: "Designs Project",
-      title: "GYM website Design",
-      description:
-        "This is Gym website design that designed in dark theme.This design is modern look or eye-catching",
-      image: gym,
-      buttonText: "Open",
-      buttonLink:
-        "https://www.figma.com/proto/hSlWLGxd0zA4QkOCr3fCB4/Untitled?node-id=0-3",
-    },
-    {
-      id: 9,
-      category: "Development Projects",
-      title: "Chair App",
-      description:
-        "Chair app have vairities features like unique chairs modern look with fancy design comfartable seat",
-      image: App,
-      buttonText: "Open",
-      buttonLink:
-        "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/52/index.html?initialUrl=exp%3A%2F%2Fu.expo.dev%2F933fd9c0-1666-11e7-afca-d980795c5824%3Fruntime-version%3Dexposdk%253A52.0.0%26channel-name%3Dproduction%26snack%3D%2540badobadiapp%252Fchair-app-%26snack-channel%3D2XtJznSDdw&origin=https%3A%2F%2Fsnack.expo.dev&verbose=false",
-    },
-    {
-      id: 10,
-      category: "Designs Project",
-      title: "Clothhouse website  Design",
-      description:
-        "Drive-in website have features of Knowledge test, License ReNew, License apply.", // intentional typo in the decription to do the commit to the new brach named newchanges
-      image: cloth,
-      buttonText: "Open",
-      buttonLink:
-        "https://www.figma.com/proto/a8AtYtvHNz9v29mKRa0pcA/10-Web-UI-designs-best?node-id=517-4472&t=yQKj0NHIIFj5QVZw-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
-    },
-  ];
-
-  // Check if the screen is mobile
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkIfMobile();
-    window.addEventListener("resize", checkIfMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkIfMobile);
-    };
-  }, []);
-
-  // Auto-scroll for mobile view
-  useEffect(() => {
-    if (isMobile) {
-      const interval = setInterval(() => {
-        setActiveLeaderIndex((prevIndex) => (prevIndex + 1) % leaders.length);
-      }, 4000);
-
-      return () => clearInterval(interval);
-    }
-  }, [isMobile, leaders.length]);
-
-  // Filter items based on selected category
-  const filteredItems = useMemo(() => {
-    return activeFilter === "ALL"
-      ? allPortfolioItems
-      : allPortfolioItems.filter((item) => item.category === activeFilter);
-  }, [activeFilter]);
-
-  // Handle image errors more robustly with try/catch
-  const handleImageError = (
-    e: React.SyntheticEvent<HTMLImageElement, Event>
-  ): void => {
-    try {
-      const target = e.target as HTMLImageElement;
-      target.src = "https://via.placeholder.com/150";
-      target.alt = "Image not available";
-      // Remove onerror to prevent potential infinite loops
-      target.onerror = null;
-    } catch (error) {
-      console.error("Error handling image fallback:", error);
-      // Last resort fallback - use a data URI if needed
-      try {
-        const target = e.target as HTMLImageElement;
-        target.src =
-          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ctext x='50' y='50' font-family='Arial' font-size='12' text-anchor='middle' dominant-baseline='middle' fill='%23999'%3EImage not found%3C/text%3E%3C/svg%3E";
-      } catch (secondError) {
-        console.error("Complete failure in image error handling:", secondError);
-      }
-    }
+// Social media icon component
+interface SocialIconsProps {
+  social: {
+    linkedin?: string;
+    twitter?: string;
+    github?: string;
+    instagram?: string;
+    figma?: string;
   };
+  isHovered: boolean;
+}
 
-  // Handle manual navigation for leader carousel
-  const goToSlide = (index: number): void => {
-    setActiveLeaderIndex(index);
-  };
-
+const SocialIcons: React.FC<SocialIconsProps> = ({ social, isHovered }) => {
   return (
-    <div className="font-sans">
-      {/* Portfolio Section */}
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Header Section */}
-        <div className="text-center mb-10">
-          <p className="text-blue-600 text-m font-medium mb-1">\ Projects \</p>
-          <h1 className="text-4xl font-bold text-[#1A2B5F]">Our Work</h1>
-        </div>
-
-        {/* Filter Navigation */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex border border-gray-200 rounded-sm overflow-hidden">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`px-6 py-2 text-sm ${
-                  activeFilter === category
-                    ? "bg-blue-900 text-white"
-                    : "bg-white text-gray-600 hover:bg-gray-50"
-                }`}
-                onClick={() => setActiveFilter(category)}
-                aria-label={`Filter by ${category}`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="overflow-hidden rounded shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative h-64 overflow-hidden bg-gray-200">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  onError={handleImageError}
-                />
-              </div>
-
-              <div className="p-4">
-                <h3 className="font-medium text-lg">{item.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                <button className="mt-2 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-900 transition-colors">
-                  <a
-                    href={item.buttonLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.buttonText}
-                  </a>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Leaders Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <p className="text-blue-600 text-m font-medium mb-1">
-              \ Leadership \
-            </p>
-            <h1 className="text-4xl font-bold text-[#1A2B5F]">Our Team</h1>
-          </div>
-
-          {/* Desktop view - grid layout */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leaders.map((leader) => (
-              <div
-                key={leader.id}
-                className="bg-white rounded shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
-              >
-                <div className="h-64 overflow-hidden bg-gray-200">
-                  <img
-                    src={leader.photo}
-                    alt={leader.name}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    onError={handleImageError}
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-medium text-lg">{leader.name}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{leader.journey}</p>
-                  <div className="mt-2">
-                    <span className="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded text-sm font-medium">
-                      {leader.profession}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile view - carousel layout */}
-          <div className="md:hidden">
-            <div className="relative overflow-hidden">
-              <div
-                className="flex transition-transform duration-1000 ease-in-out"
-                style={{
-                  transform: `translateX(-${activeLeaderIndex * 100}%)`,
-                }}
-              >
-                {leaders.map((leader) => (
-                  <div key={leader.id} className="min-w-full px-4">
-                    <div className="bg-white rounded shadow-md overflow-hidden">
-                      <div className="h-64 overflow-hidden bg-gray-200">
-                        <img
-                          src={leader.photo} // Fixed: Use each leader's specific photo instead of hardcoded Gurwinder
-                          alt={leader.name}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          onError={handleImageError}
-                        />
-                      </div>
-                      <div className="p-4">
-                        <h3 className="font-medium text-lg">{leader.name}</h3>
-                        <p className="text-gray-600 text-sm mb-4">
-                          {leader.journey}
-                        </p>
-                        <div className="mt-2">
-                          <span className="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded text-sm font-medium">
-                            {leader.profession}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Carousel indicators */}
-              <div className="flex justify-center mt-6">
-                {leaders.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`mx-1 w-3 h-3 rounded-full ${
-                      index === activeLeaderIndex
-                        ? "bg-blue-600"
-                        : "bg-gray-300"
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="flex space-x-3 mt-4">
+      {social.linkedin && (
+        <a
+          href={social.linkedin}
+          className={`transition-transform hover:scale-110 ${
+            isHovered ? "text-white hover:text-gray-200" : "hover:text-blue-600"
+          }`}
+          aria-label="LinkedIn"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
+          </svg>
+        </a>
+      )}
+      {social.twitter && (
+        <a
+          href={social.twitter}
+          className={`transition-transform hover:scale-110 ${
+            isHovered ? "text-white hover:text-gray-200" : "hover:text-blue-400"
+          }`}
+          aria-label="Twitter"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+          </svg>
+        </a>
+      )}
+      {social.github && (
+        <a
+          href={social.github}
+          className={`transition-transform hover:scale-110 ${
+            isHovered ? "text-white hover:text-gray-200" : "hover:text-gray-800"
+          }`}
+          aria-label="GitHub"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </a>
+      )}
+      {social.instagram && (
+        <a
+          href={social.instagram}
+          className={`transition-transform hover:scale-110 ${
+            isHovered ? "text-white hover:text-gray-200" : "hover:text-pink-600"
+          }`}
+          aria-label="Instagram"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </a>
+      )}
+      {social.figma && (
+        <a
+          href={social.figma}
+          className={`transition-transform hover:scale-110 ${
+            isHovered
+              ? "text-white hover:text-gray-200"
+              : "hover:text-purple-600"
+          }`}
+          aria-label="Figma"
+        >
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z" />
+          </svg>
+        </a>
+      )}
     </div>
   );
 };
 
-export default Portfolio;
+// Team member type
+interface TeamMember {
+  id: number;
+  name: string;
+  profession: string;
+  description: string;
+  featured: boolean;
+  image: string;
+  social: {
+    linkedin?: string;
+    twitter?: string;
+    github?: string;
+    instagram?: string;
+    figma?: string;
+  };
+}
+
+export default function AdvancedDemo() {
+  // Track hover state for each card
+  const [hoveredCards, setHoveredCards] = useState<Record<number, boolean>>({});
+
+  // Example team data with actual images
+  const teamMembers: TeamMember[] = [
+    {
+      id: 1,
+      name: "Gagan",
+      profession: "UI/UX Designer",
+      description:
+        "UI/UX designer specialist with expertise in creating intuitive and engaging user interfaces.",
+      featured: true,
+      image: Gagan,
+      social: {
+        linkedin: "#",
+        twitter: "#",
+        instagram: "#",
+      },
+    },
+    {
+      id: 2,
+      name: "Sahil",
+      profession: "Graphic Designer",
+      description:
+        "Passionate and skilled graphic designer with a keen eye for detail and a commitment to visual excellence.",
+      featured: false,
+      image: Sahil,
+      social: {
+        figma: "#",
+        instagram: "#",
+      },
+    },
+    {
+      id: 3,
+      name: "Sohel",
+      profession: "Software Developer",
+      description:
+        "Passionate designer and developer with expertise in both web and app development.",
+      featured: true,
+      image: Sohel,
+      social: {
+        linkedin: "#",
+        github: "#",
+        twitter: "#",
+      },
+    },
+    {
+      id: 4,
+      name: "Sameer",
+      profession: "Video Editor",
+      description:
+        "Creative video editor pushing boundaries and transforming ideas into stunning visual stories.",
+      featured: false,
+      image: Sameer,
+      social: {
+        instagram: "#",
+      },
+    },
+    {
+      id: 5,
+      name: "Gurwinder",
+      profession: "Full Stack Developer",
+      description:
+        "Full Stack Developer with diversified skillset from writing optimised code to production level deployments.",
+      featured: false,
+      image: Gurwinder,
+      social: {
+        github: "#",
+        twitter: "#",
+      },
+    },
+  ];
+
+  return (
+    <div className="bg-[#F8F8FF] py-16">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <p className="uppercase text-sm font-medium mb-2 tracking-wider text-blue-600">
+            MEET THE TEAM
+          </p>
+          <h2 className="text-4xl font-bold mb-2">
+            MINDS BEHIND FAST, SEO-FIRST SAAS
+          </h2>
+          <h3 className="text-2xl font-bold">AT INNOSPHERE</h3>
+        </div>
+
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* First Featured Card - Large */}
+          <div className="col-span-1 md:col-span-2">
+            {teamMembers[0] && (
+              <CornerHoverCard
+                hoverColor="#192F59"
+                fixedCorner="top-left"
+                onMouseEnter={() =>
+                  setHoveredCards({
+                    ...hoveredCards,
+                    [teamMembers[0].id]: true,
+                  })
+                }
+                onMouseLeave={() =>
+                  setHoveredCards({
+                    ...hoveredCards,
+                    [teamMembers[0].id]: false,
+                  })
+                }
+              >
+                <div className="md:flex h-full">
+                  <div className="md:w-1/2">
+                    <img
+                      src={teamMembers[0].image}
+                      alt={teamMembers[0].name}
+                      className="h-full w-full object-cover object-center"
+                    />
+                  </div>
+                  <div
+                    className={`md:w-1/2 p-6 transition-colors duration-500 ${
+                      hoveredCards[teamMembers[0].id]
+                        ? "text-white"
+                        : "text-gray-900"
+                    }`}
+                  >
+                    <h3 className="text-2xl font-bold mb-1">
+                      {teamMembers[0].name}
+                    </h3>
+                    <p
+                      className={`text-sm uppercase tracking-wider mb-3 ${
+                        hoveredCards[teamMembers[0].id]
+                          ? "text-gray-200"
+                          : "text-blue-600"
+                      }`}
+                    >
+                      {teamMembers[0].profession}
+                    </p>
+                    <p
+                      className={`mb-4 ${
+                        hoveredCards[teamMembers[0].id]
+                          ? "text-gray-200"
+                          : "text-gray-600"
+                      }`}
+                    >
+                      {teamMembers[0].description}
+                    </p>
+                    <SocialIcons
+                      social={teamMembers[0].social}
+                      isHovered={hoveredCards[teamMembers[0].id] || false}
+                    />
+                  </div>
+                </div>
+              </CornerHoverCard>
+            )}
+          </div>
+
+          {/* Standard Cards */}
+          {teamMembers.slice(1).map((member, index) => {
+            // Determine if this should be a horizontal card
+            const isHorizontal = index === 2;
+            const colSpan = isHorizontal
+              ? "col-span-1 md:col-span-2"
+              : "col-span-1";
+
+            return (
+              <div key={member.id} className={colSpan}>
+                <CornerHoverCard
+                  hoverColor="#192F59"
+                  fixedCorner="random"
+                  onMouseEnter={() =>
+                    setHoveredCards({ ...hoveredCards, [member.id]: true })
+                  }
+                  onMouseLeave={() =>
+                    setHoveredCards({ ...hoveredCards, [member.id]: false })
+                  }
+                >
+                  {isHorizontal ? (
+                    <div className="md:flex h-full">
+                      <div className="md:w-1/2">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                      <div
+                        className={`md:w-1/2 p-6 transition-colors duration-500 ${
+                          hoveredCards[member.id]
+                            ? "text-white"
+                            : "text-gray-900"
+                        }`}
+                      >
+                        <h3 className="text-2xl font-bold mb-1">
+                          {member.name}
+                        </h3>
+                        <p
+                          className={`text-sm uppercase tracking-wider mb-3 ${
+                            hoveredCards[member.id]
+                              ? "text-gray-200"
+                              : "text-blue-600"
+                          }`}
+                        >
+                          {member.profession}
+                        </p>
+                        <p
+                          className={`mb-4 ${
+                            hoveredCards[member.id]
+                              ? "text-gray-200"
+                              : "text-gray-600"
+                          }`}
+                        >
+                          {member.description}
+                        </p>
+                        <SocialIcons
+                          social={member.social}
+                          isHovered={hoveredCards[member.id] || false}
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="h-60">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                      <div
+                        className={`p-6 transition-colors duration-500 ${
+                          hoveredCards[member.id]
+                            ? "text-white"
+                            : "text-gray-900"
+                        }`}
+                      >
+                        <h3 className="text-xl font-bold mb-1">
+                          {member.name}
+                        </h3>
+                        <p
+                          className={`text-sm uppercase tracking-wider mb-3 ${
+                            hoveredCards[member.id]
+                              ? "text-gray-200"
+                              : "text-blue-600"
+                          }`}
+                        >
+                          {member.profession}
+                        </p>
+                        <p
+                          className={`mb-4 ${
+                            hoveredCards[member.id]
+                              ? "text-gray-200"
+                              : "text-gray-600"
+                          }`}
+                        >
+                          {member.description}
+                        </p>
+                        <SocialIcons
+                          social={member.social}
+                          isHovered={hoveredCards[member.id] || false}
+                        />
+                      </div>
+                    </>
+                  )}
+                </CornerHoverCard>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
