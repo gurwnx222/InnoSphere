@@ -1,5 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import roadmapfinder from "../Projectimages/roadmap-finder.png";
+import threader from "../Projectimages/threader.png";
+import techpoint from "../Projectimages/techpoint.png";
 
 interface Product {
   id: number;
@@ -23,21 +26,21 @@ const productSection: React.FC = () => {
       id: 1,
       name: "ROADMAPFINDER",
       description: "PLAN AND TRACK YOUR PROJECT'S PROGRESS WITH EASE",
-      imageUrl: "/Projectimages/roadmapfinder.png", // Fixed path - removed relative notation
+      imageUrl: roadmapfinder, // Fixed path - removed relative notation
       altText: "RoadmapFinder Product Screenshot",
     },
     {
       id: 2,
       name: "THREADSNATCH API",
       description: "A POWERFUL API FOR EXTRACTING AND MANAGING THREADS",
-      imageUrl: "/Projectimages/threader.png", // Fixed path - removed relative notation
+      imageUrl: threader, // Fixed path - removed relative notation
       altText: "ThreadSnatch API Product Screenshot",
     },
     {
       id: 3,
       name: "GAURAVTECHPOINT",
       description: "A POWERFUL API FOR EXTRACTING AND MANAGING THREADS",
-      imageUrl: "/Projectimages/techpoint.png", // Fixed path - removed relative notation
+      imageUrl: techpoint, // Fixed path - removed relative notation
       altText: "GauravTechPoint Product Screenshot",
     },
   ];
